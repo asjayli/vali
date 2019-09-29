@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <option name="BUILD_PROCESS_HEAP_SIZE" value="2048" />
     <annotationProcessing>
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -14,17 +13,15 @@
         <module name="jutils-runtime" />
         <module name="jutils-job" />
         <module name="jutils-net" />
-        <module name="jutils-captcha" />
         <module name="jutils-metrics" />
         <module name="jutils-all" />
         <module name="jutils-io" />
         <module name="jutils-turing" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="8">
+    <bytecodeTargetLevel>
       <module name="jutils" target="1.8" />
       <module name="jutils-all" target="1.8" />
-      <module name="jutils-captcha" target="1.8" />
       <module name="jutils-concurrent" target="1.8" />
       <module name="jutils-core" target="1.8" />
       <module name="jutils-crypto" target="1.8" />

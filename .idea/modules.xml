@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/jutils.iml" filepath="$PROJECT_DIR$/.idea/jutils.iml" />
       <module fileurl="file://$PROJECT_DIR$/jutils-all/jutils-all.iml" filepath="$PROJECT_DIR$/jutils-all/jutils-all.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jutils-turing/jutils-captcha.iml" filepath="$PROJECT_DIR$/jutils-turing/jutils-captcha.iml" />
       <module fileurl="file://$PROJECT_DIR$/jutils-concurrent/jutils-concurrent.iml" filepath="$PROJECT_DIR$/jutils-concurrent/jutils-concurrent.iml" />
       <module fileurl="file://$PROJECT_DIR$/jutils-core/jutils-core.iml" filepath="$PROJECT_DIR$/jutils-core/jutils-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/jutils-crypto/jutils-crypto.iml" filepath="$PROJECT_DIR$/jutils-crypto/jutils-crypto.iml" />
