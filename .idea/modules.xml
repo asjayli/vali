@@ -13,6 +13,7 @@
       <module fileurl="file://$PROJECT_DIR$/jutils-metrics/jutils-metrics.iml" filepath="$PROJECT_DIR$/jutils-metrics/jutils-metrics.iml" />
       <module fileurl="file://$PROJECT_DIR$/jutils-net/jutils-net.iml" filepath="$PROJECT_DIR$/jutils-net/jutils-net.iml" />
       <module fileurl="file://$PROJECT_DIR$/jutils-runtime/jutils-runtime.iml" filepath="$PROJECT_DIR$/jutils-runtime/jutils-runtime.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jutils-sigar/jutils-sigar.iml" filepath="$PROJECT_DIR$/jutils-sigar/jutils-sigar.iml" />
       <module fileurl="file://$PROJECT_DIR$/jutils-turing/jutils-turing.iml" filepath="$PROJECT_DIR$/jutils-turing/jutils-turing.iml" />
     </modules>
   </component>

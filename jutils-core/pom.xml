@@ -8,7 +8,7 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
-
+	<groupId>com.kitsrc.jutils</groupId>
 	<artifactId>jutils-core</artifactId>
 	<name>${project.artifactId}</name>
 	<version>${reversion}</version>
@@ -102,14 +102,15 @@
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-api</artifactId>
-			<version>RELEASE</version>
+			<version>5.5.2</version>
 			<scope>test</scope>
 		</dependency>
-		<!--<dependency>
-			<groupId>cglib</groupId>
-			<artifactId>cglib-nodep</artifactId>
-			<version>${cglib.version}</version>
-		</dependency>-->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>5.5.2</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 </project>

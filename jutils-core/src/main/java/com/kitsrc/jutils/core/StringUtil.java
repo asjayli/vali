@@ -116,91 +116,6 @@ public class StringUtil extends StringUtils {
      */
     private static final Pattern PATTERN_BLANK_CHARACTER = Pattern.compile("\\s*|\t*|\r*|\n*");
 
-    /**
-     * <p>Capitalizes a String changing the first character to title case as
-     * per {@link Character#toTitleCase(int)}. No other characters are changed.</p>
-     *
-     * A {@code null} input String returns {@code null}.</p>
-     *
-     * <pre>
-     * StringUtils.capitalize(null)  = null
-     * StringUtils.capitalize("")    = ""
-     * StringUtils.capitalize("cat") = "Cat"
-     * StringUtils.capitalize("cAt") = "CAt"
-     * StringUtils.capitalize("'cat'") = "'cat'"
-     * </pre>
-     *
-     * @param str the String to capitalize, may be null
-     * @return the capitalized String, {@code null} if null String input
-     * @see #uncapitalize(String)
-     * @since 2.0
-     */
-    public static String capitalize(String str) {
-        int strLen;
-        if (str == null || (strLen = str.length()) == 0) {
-            return str;
-        }
-
-        int firstCodepoint = str.codePointAt(0);
-        int newCodePoint = Character.toTitleCase(firstCodepoint);
-        if (firstCodepoint == newCodePoint) {
-            // already capitalized
-            return str;
-        }
-
-        int[] newCodePoints = new int[strLen]; // cannot be longer than the char array
-        int outOffset = 0;
-        newCodePoints[outOffset++] = newCodePoint; // copy the first codepoint
-        for (int inOffset = Character.charCount(firstCodepoint); inOffset < strLen; ) {
-            int codepoint = str.codePointAt(inOffset);
-            newCodePoints[outOffset++] = codepoint; // copy the remaining ones
-            inOffset += Character.charCount(codepoint);
-        }
-        return new String(newCodePoints, 0, outOffset);
-    }
-
-    /**
-     * <p>Uncapitalizes a String, changing the first character to lower case as
-     * per {@link Character#toLowerCase(int)}. No other characters are changed.</p>
-     *
-     * A {@code null} input String returns {@code null}.</p>
-     *
-     * <pre>
-     * StringUtils.uncapitalize(null)  = null
-     * StringUtils.uncapitalize("")    = ""
-     * StringUtils.uncapitalize("cat") = "cat"
-     * StringUtils.uncapitalize("Cat") = "cat"
-     * StringUtils.uncapitalize("CAT") = "cAT"
-     * </pre>
-     *
-     * @param str the String to uncapitalize, may be null
-     * @return the uncapitalized String, {@code null} if null String input
-     * @see #capitalize(String)
-     * @since 2.0
-     */
-    public static String uncapitalize(String str) {
-        int strLen;
-        if (str == null || (strLen = str.length()) == 0) {
-            return str;
-        }
-
-        int firstCodepoint = str.codePointAt(0);
-        int newCodePoint = Character.toLowerCase(firstCodepoint);
-        if (firstCodepoint == newCodePoint) {
-            // already capitalized
-            return str;
-        }
-
-        int[] newCodePoints = new int[strLen]; // cannot be longer than the char array
-        int outOffset = 0;
-        newCodePoints[outOffset++] = newCodePoint; // copy the first codepoint
-        for (int inOffset = Character.charCount(firstCodepoint); inOffset < strLen; ) {
-            int codepoint = str.codePointAt(inOffset);
-            newCodePoints[outOffset++] = codepoint; // copy the remaining ones
-            inOffset += Character.charCount(codepoint);
-        }
-        return new String(newCodePoints, 0, outOffset);
-    }
 
     /**
      * 将字符串修饰成驼峰命名风格
@@ -480,7 +395,7 @@ public class StringUtil extends StringUtils {
         if (StringUtil.isBlank(str)) {
             return str;
         }
-        if (str.contains("\\u")) {
+        if (!isNumeric(str)) {
             return "";
         }
         int sz = str.length();
@@ -744,7 +659,7 @@ public class StringUtil extends StringUtils {
      * @return
      */
     public static char upperCaseChar(char c) {
-        if (97 <= c && c <= 122) {
+        if ('a' <= c && c <= 'z') {
             //等同于c-=32 更快
             c ^= 32;
         }
