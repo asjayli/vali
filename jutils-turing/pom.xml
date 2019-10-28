@@ -72,6 +72,8 @@
 			<groupId>libsvm</groupId>
 			<artifactId>svm</artifactId>
 			<version>1.6.0</version>
+			<!--			<scope>system</scope>
+						<systemPath>${basedir}/src/main/resources/libs/libsvm.jar</systemPath>-->
 		</dependency>
 		<dependency>
 			<groupId>com.jhlabs</groupId>

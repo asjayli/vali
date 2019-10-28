@@ -149,11 +149,11 @@ public class Ocr4 {
 
     public static String getSingleCharOcr(BufferedImage img, Map<BufferedImage, String> map) throws Exception {
         if (useSvm) {
-            final String input = new File("img/" + clazz + "/input.txt").getAbsolutePath();
-            final String output = new File("result/" + clazz + "/output.txt").getAbsolutePath();
+            final String input = new File(Constants.IMG_PATH + clazz + "/input.txt").getAbsolutePath();
+            final String output = new File(Constants.RESULT_PATH + clazz + "/output.txt").getAbsolutePath();
             CommonUtil.imgToSvmInput(img, input, whiteThreshold);
             svm_predict.main(
-                    new String[] {input, new File("train/" + clazz + "/data.txt.model").getAbsolutePath(), output});
+                    new String[] {input, new File(Constants.TRAIN_PATH + clazz + "/data.txt.model").getAbsolutePath(), output});
             final List<String> predict = IOUtils.readLines(new FileInputStream(output));
             if (predict.size() > 0 && predict.get(0).length() > 0) {
                 return predict.get(0).substring(0, 1);
@@ -236,14 +236,14 @@ public class Ocr4 {
             result += getSingleCharOcr(bi, map);
         }
         System.out.println(result);
-        ImageIO.write(img, "JPG", new File("result/" + clazz + "/" + result + ".jpg"));
+        ImageIO.write(img, "JPG", new File(Constants.RESULT_PATH + clazz + "/" + result + ".jpg"));
         return result;
     }
 
     public static Map<BufferedImage, String> loadTrainData() throws Exception {
         if (trainMap == null) {
             final Map<BufferedImage, String> map = new HashMap<BufferedImage, String>();
-            final File dir = new File("train/" + clazz);
+            final File dir = new File(Constants.TRAIN_PATH + clazz);
             final File[] files = dir.listFiles(new FilenameFilter() {
                 @Override
                 public boolean accept(File dir, String name) {
@@ -283,20 +283,20 @@ public class Ocr4 {
         // String url = "http://reg.keepc.com/getcode/getCode.php";
         // 下载图片
         // CommonUtil.downloadImage(url, clazz);
-        new File("img/" + clazz).mkdirs();
-        new File("train/" + clazz).mkdirs();
-        new File("result/" + clazz).mkdirs();
+        new File(Constants.IMG_PATH + clazz).mkdirs();
+        new File(Constants.TRAIN_PATH + clazz).mkdirs();
+        new File(Constants.RESULT_PATH + clazz).mkdirs();
         // 先删除result/ocr目录，开始识别
         for (int i = 0; i < 30; ++i) {
-            final String text = getAllOcr("img/" + clazz + "/" + i + ".jpg");
+            final String text = getAllOcr(Constants.IMG_PATH + clazz + "/" + i + ".jpg");
             System.out.println(i + ".jpg = " + text);
         }
 
         // CommonUtil.scaleTraindata(clazz, whiteThreshold);
         // svm_train train = new svm_train();
-        // train.run(new String[] { new File("train/" + clazz +
+        // train.run(new String[] { new File(Constants.TRAIN_PATH + clazz +
         // "/data.txt").getAbsolutePath(),
-        // new File("train/" + clazz + "/data.txt.model").getAbsolutePath() });
+        // new File(Constants.TRAIN_PATH + clazz + "/data.txt.model").getAbsolutePath() });
     }
 
 }

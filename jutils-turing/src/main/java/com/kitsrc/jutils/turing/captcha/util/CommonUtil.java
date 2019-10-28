@@ -13,6 +13,7 @@ import java.util.Map;
 import javax.imageio.ImageIO;
 
 import com.jhlabs.image.ScaleFilter;
+import com.kitsrc.jutils.turing.captcha.Constants;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
@@ -35,7 +36,7 @@ public class CommonUtil {
                     System.err.println("Method failed: " + response.getStatusLine());
                 }
                 // save img
-                String picName = "img/" + category;
+                String picName = Constants.IMG_PATH + category;
                 final File f = new File(picName);
                 f.mkdirs();
                 picName += "/" + i + ".jpg";
@@ -113,7 +114,7 @@ public class CommonUtil {
 
     public static Map<BufferedImage, String> loadTrainData(String category) throws Exception {
         final Map<BufferedImage, String> map = new HashMap<BufferedImage, String>();
-        final File dir = new File("train/" + category);
+        final File dir = new File(Constants.TRAIN_PATH + category);
         final File[] files = dir.listFiles(new FilenameFilter() {
             @Override
             public boolean accept(File dir, String name) {
@@ -127,8 +128,8 @@ public class CommonUtil {
     }
 
     public static void scaleTraindata(String category, int threshold) throws Exception {
-        final File dir = new File("train/" + category);
-        final File dataFile = new File("train/" + category + "/data.txt");
+        final File dir = new File(Constants.TRAIN_PATH + category);
+        final File dataFile = new File(Constants.TRAIN_PATH + category + "/data.txt");
         final FileOutputStream fs = new FileOutputStream(dataFile);
         final File[] files = dir.listFiles(new FilenameFilter() {
             @Override
@@ -141,8 +142,8 @@ public class CommonUtil {
             final ScaleFilter sf = new ScaleFilter(16, 16);
             BufferedImage imgdest = new BufferedImage(16, 16, img.getType());
             imgdest = sf.filter(img, imgdest);
-            new File("train/svm/" + category).mkdirs();
-            ImageIO.write(imgdest, "JPG", new File("train/svm/" + category + "/" + file.getName()));
+            new File(Constants.TRAIN_PATH + "svm/" + category).mkdirs();
+            ImageIO.write(imgdest, "JPG", new File(Constants.TRAIN_PATH + "svm/" + category + "/" + file.getName()));
             fs.write((file.getName().charAt(0) + " ").getBytes());
             int index = 1;
             for (int x = 0; x < imgdest.getWidth(); ++x) {

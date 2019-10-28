@@ -6,13 +6,14 @@
       <module fileurl="file://$PROJECT_DIR$/jutils-all/jutils-all.iml" filepath="$PROJECT_DIR$/jutils-all/jutils-all.iml" />
       <module fileurl="file://$PROJECT_DIR$/jutils-concurrent/jutils-concurrent.iml" filepath="$PROJECT_DIR$/jutils-concurrent/jutils-concurrent.iml" />
       <module fileurl="file://$PROJECT_DIR$/jutils-core/jutils-core.iml" filepath="$PROJECT_DIR$/jutils-core/jutils-core.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jutils-crypto/jutils-crypto.iml" filepath="$PROJECT_DIR$/jutils-crypto/jutils-crypto.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jutils-guid/jutils-guid.iml" filepath="$PROJECT_DIR$/jutils-guid/jutils-guid.iml" />
       <module fileurl="file://$PROJECT_DIR$/jutils-io/jutils-io.iml" filepath="$PROJECT_DIR$/jutils-io/jutils-io.iml" />
       <module fileurl="file://$PROJECT_DIR$/jutils-job/jutils-job.iml" filepath="$PROJECT_DIR$/jutils-job/jutils-job.iml" />
       <module fileurl="file://$PROJECT_DIR$/jutils-json/jutils-json.iml" filepath="$PROJECT_DIR$/jutils-json/jutils-json.iml" />
       <module fileurl="file://$PROJECT_DIR$/jutils-metrics/jutils-metrics.iml" filepath="$PROJECT_DIR$/jutils-metrics/jutils-metrics.iml" />
       <module fileurl="file://$PROJECT_DIR$/jutils-net/jutils-net.iml" filepath="$PROJECT_DIR$/jutils-net/jutils-net.iml" />
       <module fileurl="file://$PROJECT_DIR$/jutils-runtime/jutils-runtime.iml" filepath="$PROJECT_DIR$/jutils-runtime/jutils-runtime.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jutils-security/jutils-security.iml" filepath="$PROJECT_DIR$/jutils-security/jutils-security.iml" />
       <module fileurl="file://$PROJECT_DIR$/jutils-sigar/jutils-sigar.iml" filepath="$PROJECT_DIR$/jutils-sigar/jutils-sigar.iml" />
       <module fileurl="file://$PROJECT_DIR$/jutils-turing/jutils-turing.iml" filepath="$PROJECT_DIR$/jutils-turing/jutils-turing.iml" />
     </modules>

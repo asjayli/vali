@@ -16,10 +16,11 @@
 		<module>jutils-turing</module>
 		<module>jutils-runtime</module>
 		<module>jutils-concurrent</module>
-		<module>jutils-crypto</module>
+		<module>jutils-security</module>
 		<module>jutils-io</module>
 		<module>jutils-all</module>
 		<module>jutils-sigar</module>
+		<module>jutils-guid</module>
 	</modules>
 	<packaging>pom</packaging>
 
@@ -46,9 +47,40 @@
 		<gmavenplus-plugin.version>1.6</gmavenplus-plugin.version>
 		<jacoco.version>0.8.3</jacoco.version>
 
-		<spring-boot.version>2.1.8.RELEASE</spring-boot.version>
+		<!--<spring-boot.version>2.1.8.RELEASE</spring-boot.version>-->
 		<lombok.version>1.18.10</lombok.version>
+		<slf4j.version>1.7.28</slf4j.version>
 	</properties>
-
+	<dependencies>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>${slf4j.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>5.5.2</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>5.5.2</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 
 </project>

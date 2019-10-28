@@ -24,7 +24,7 @@ public class Ocr2 {
         for (final BufferedImage bi : listImg) {
             result += getSingleCharOcr(bi, map);
         }
-        ImageIO.write(img, "JPG", new File("result/" + clazz + "/" + result + ".jpg"));
+        ImageIO.write(img, "PNG", new File(Constants.RESULT_PATH + clazz + "/" + result + ".png"));
         return result;
     }
 
@@ -71,9 +71,9 @@ public class Ocr2 {
             }
             weightlist.add(count);
         }
-        for (int i = 0; i < weightlist.size(); ) {
+        for (int i = 0; i < weightlist.size(); i++) {
             int length = 0;
-            while (weightlist.get(i++) > 1) {
+            while (weightlist.get(i) > 1) {
                 length++;
             }
             if (length > 12) {
@@ -90,15 +90,18 @@ public class Ocr2 {
         return subImgs;
     }
 
+    //    public static void main(String[] args) throws Exception {
+//        new File(Constants.IMG_PATH + clazz).mkdirs();
+//        new File(Constants.TRAIN_PATH + clazz).mkdirs();
+//        new File(Constants.RESULT_PATH + clazz).mkdirs();
+//
+//        for (int i = 0; i < 30; ++i) {
+//            final String text = getAllOcr(Constants.IMG_PATH + clazz + "/" + i + ".jpg");
+//            System.out.println(i + ".jpg = " + text);
+//        }
+//    }
     public static void main(String[] args) throws Exception {
-        new File("img/" + clazz).mkdirs();
-        new File("train/" + clazz).mkdirs();
-        new File("result/" + clazz).mkdirs();
-
-        for (int i = 0; i < 30; ++i) {
-            final String text = getAllOcr("img/" + clazz + "/" + i + ".jpg");
-            System.out.println(i + ".jpg = " + text);
-        }
+        final String allOcr = getAllOcr("D:/captcha.png");
+        System.out.println(allOcr);
     }
-
 }

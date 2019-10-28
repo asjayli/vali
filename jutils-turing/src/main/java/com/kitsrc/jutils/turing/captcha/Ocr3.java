@@ -69,7 +69,7 @@ public class Ocr3 {
         for (final BufferedImage bi : listImg) {
             result += getSingleCharOcr(bi, map);
         }
-        ImageIO.write(img, "JPG", new File("result/" + clazz + "/" + result + ".jpg"));
+        ImageIO.write(img, "PNG", new File(Constants.RESULT_PATH + clazz + "/" + result + ".png"));
         return result;
     }
 
@@ -132,19 +132,24 @@ public class Ocr3 {
         return subImgs;
     }
 
+    //    public static void main(String[] args) throws Exception {
+//        // ---step1 downloadImage
+//        // String url = "http://game.tom.com/checkcode.php";
+//        // //下载图片
+//        // CommonUtil.downloadImage(url, clazz);
+////            D:\Projects\code\kitsrc\jutils\jutils-turing\src\main\resources
+//        new File(Constants.IMG_PATH + clazz).mkdirs();
+//        new File(Constants.TRAIN_PATH + clazz).mkdirs();
+//        new File(Constants.RESULT_PATH + clazz).mkdirs();
+//        // 先删除result/ocr目录，开始识别
+//        for (int i = 0; i < 30; ++i) {
+//            final String text = getAllOcr(Constants.IMG_PATH + clazz + "/" + i + ".jpg");
+//            System.out.println(i + ".jpg = " + text);
+//        }
+//    }
     public static void main(String[] args) throws Exception {
-        // ---step1 downloadImage
-        // String url = "http://game.tom.com/checkcode.php";
-        // //下载图片
-        // CommonUtil.downloadImage(url, clazz);
-        new File("img/" + clazz).mkdirs();
-        new File("train/" + clazz).mkdirs();
-        new File("result/" + clazz).mkdirs();
-        // 先删除result/ocr目录，开始识别
-        for (int i = 0; i < 30; ++i) {
-            final String text = getAllOcr("img/" + clazz + "/" + i + ".jpg");
-            System.out.println(i + ".jpg = " + text);
-        }
+        final String allOcr = getAllOcr("D:/captcha.png");
+        System.out.println(allOcr);
     }
 
 }

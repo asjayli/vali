@@ -9,7 +9,6 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import com.esotericsoftware.reflectasm.ConstructorAccess;
 import com.esotericsoftware.reflectasm.MethodAccess;
-import lombok.extern.slf4j.Slf4j;
 import net.sf.cglib.beans.BeanCopier;
 import org.apache.commons.collections4.CollectionUtils;
 
@@ -21,7 +20,6 @@ import org.apache.commons.collections4.CollectionUtils;
  * @time : 13:28  </p>
  * Description:  </p>
  */
-@Slf4j
 public class BeanUtil {
     /**
      * 缓存 BeanCopier 实例
