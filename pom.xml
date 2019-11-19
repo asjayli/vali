@@ -4,24 +4,24 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.kitsrc.jutils</groupId>
-	<artifactId>jutils</artifactId>
+	<groupId>com.kitsrc.watt</groupId>
+	<artifactId>watt</artifactId>
 	<version>${reversion}</version>
 	<modules>
-		<module>jutils-core</module>
-		<module>jutils-job</module>
-		<module>jutils-metrics</module>
-		<module>jutils-net</module>
-		<module>jutils-json</module>
-		<module>jutils-turing</module>
-		<module>jutils-runtime</module>
-		<module>jutils-concurrent</module>
-		<module>jutils-security</module>
-		<module>jutils-io</module>
-		<module>jutils-all</module>
-		<module>jutils-sigar</module>
-		<module>jutils-guid</module>
-        <module>jutils-spring</module>
+		<module>watt-core</module>
+		<module>watt-job</module>
+		<module>watt-metrics</module>
+		<module>watt-net</module>
+		<module>watt-json</module>
+		<module>watt-turing</module>
+		<module>watt-runtime</module>
+		<module>watt-concurrent</module>
+		<module>watt-security</module>
+		<module>watt-io</module>
+		<module>watt-all</module>
+		<module>watt-sigar</module>
+		<module>watt-guid</module>
+        <module>watt-spring</module>
 	</modules>
 	<packaging>pom</packaging>
 
