@@ -1,4 +1,4 @@
-package com.kitsrc.jutils.core.bean;
+package com.kitsrc.jutils.api;
 
 @FunctionalInterface
 public interface IAction<T> {

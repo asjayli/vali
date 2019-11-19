@@ -14,6 +14,7 @@
     <file url="file://$PROJECT_DIR$/jutils-runtime" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jutils-security" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jutils-sigar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jutils-spring" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jutils-turing" charset="UTF-8" />
   </component>
 </project>

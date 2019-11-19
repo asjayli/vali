@@ -1,5 +1,7 @@
 package com.kitsrc.jutils.core.lambda;
 
+import com.kitsrc.jutils.api.ThrowingConsumer;
+import com.kitsrc.jutils.api.ThrowingFunction;
 import java.util.function.Consumer;
 import java.util.function.Function;
 

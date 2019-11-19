@@ -7,19 +7,20 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="jutils-io" />
         <module name="jutils-metrics" />
         <module name="jutils-core" />
-        <module name="jutils-concurrent" />
-        <module name="jutils-sigar" />
-        <module name="jutils-net" />
-        <module name="jutils-turing" />
-        <module name="jutils-all" />
-        <module name="jutils-json" />
+        <module name="jutils-io" />
         <module name="jutils-guid" />
+        <module name="jutils-net" />
+        <module name="jutils-all" />
+        <module name="jutils-concurrent" />
+        <module name="jutils-json" />
         <module name="jutils-job" />
-        <module name="jutils-runtime" />
         <module name="jutils-security" />
+        <module name="jutils-spring" />
+        <module name="jutils-turing" />
+        <module name="jutils-sigar" />
+        <module name="jutils-runtime" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -36,6 +37,7 @@
       <module name="jutils-runtime" target="1.8" />
       <module name="jutils-security" target="1.8" />
       <module name="jutils-sigar" target="1.8" />
+      <module name="jutils-spring" target="1.8" />
       <module name="jutils-turing" target="1.8" />
     </bytecodeTargetLevel>
   </component>

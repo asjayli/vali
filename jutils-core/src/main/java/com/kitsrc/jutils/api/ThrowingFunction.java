@@ -1,4 +1,4 @@
-package com.kitsrc.jutils.core.lambda;
+package com.kitsrc.jutils.api;
 
 @FunctionalInterface
 public interface ThrowingFunction<T, R> {

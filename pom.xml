@@ -21,6 +21,7 @@
 		<module>jutils-all</module>
 		<module>jutils-sigar</module>
 		<module>jutils-guid</module>
+        <module>jutils-spring</module>
 	</modules>
 	<packaging>pom</packaging>
 

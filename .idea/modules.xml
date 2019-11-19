@@ -15,6 +15,7 @@
       <module fileurl="file://$PROJECT_DIR$/jutils-runtime/jutils-runtime.iml" filepath="$PROJECT_DIR$/jutils-runtime/jutils-runtime.iml" />
       <module fileurl="file://$PROJECT_DIR$/jutils-security/jutils-security.iml" filepath="$PROJECT_DIR$/jutils-security/jutils-security.iml" />
       <module fileurl="file://$PROJECT_DIR$/jutils-sigar/jutils-sigar.iml" filepath="$PROJECT_DIR$/jutils-sigar/jutils-sigar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jutils-spring/jutils-spring.iml" filepath="$PROJECT_DIR$/jutils-spring/jutils-spring.iml" />
       <module fileurl="file://$PROJECT_DIR$/jutils-turing/jutils-turing.iml" filepath="$PROJECT_DIR$/jutils-turing/jutils-turing.iml" />
     </modules>
   </component>
