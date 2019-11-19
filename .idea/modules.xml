@@ -2,7 +2,21 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/jutils.iml" filepath="$PROJECT_DIR$/.idea/jutils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/watt.iml" filepath="$PROJECT_DIR$/.idea/watt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/watt-all/watt-all.iml" filepath="$PROJECT_DIR$/watt-all/watt-all.iml" />
+      <module fileurl="file://$PROJECT_DIR$/watt-concurrent/watt-concurrent.iml" filepath="$PROJECT_DIR$/watt-concurrent/watt-concurrent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/watt-core/watt-core.iml" filepath="$PROJECT_DIR$/watt-core/watt-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/watt-guid/watt-guid.iml" filepath="$PROJECT_DIR$/watt-guid/watt-guid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/watt-io/watt-io.iml" filepath="$PROJECT_DIR$/watt-io/watt-io.iml" />
+      <module fileurl="file://$PROJECT_DIR$/watt-job/watt-job.iml" filepath="$PROJECT_DIR$/watt-job/watt-job.iml" />
+      <module fileurl="file://$PROJECT_DIR$/watt-json/watt-json.iml" filepath="$PROJECT_DIR$/watt-json/watt-json.iml" />
+      <module fileurl="file://$PROJECT_DIR$/watt-metrics/watt-metrics.iml" filepath="$PROJECT_DIR$/watt-metrics/watt-metrics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/watt-net/watt-net.iml" filepath="$PROJECT_DIR$/watt-net/watt-net.iml" />
+      <module fileurl="file://$PROJECT_DIR$/watt-runtime/watt-runtime.iml" filepath="$PROJECT_DIR$/watt-runtime/watt-runtime.iml" />
+      <module fileurl="file://$PROJECT_DIR$/watt-security/watt-security.iml" filepath="$PROJECT_DIR$/watt-security/watt-security.iml" />
+      <module fileurl="file://$PROJECT_DIR$/watt-sigar/watt-sigar.iml" filepath="$PROJECT_DIR$/watt-sigar/watt-sigar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/watt-spring/watt-spring.iml" filepath="$PROJECT_DIR$/watt-spring/watt-spring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/watt-turing/watt-turing.iml" filepath="$PROJECT_DIR$/watt-turing/watt-turing.iml" />
     </modules>
   </component>
 </project>
