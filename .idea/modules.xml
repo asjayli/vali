@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/watt-all/watt-all.iml" filepath="$PROJECT_DIR$/watt-all/watt-all.iml" />
       <module fileurl="file://$PROJECT_DIR$/watt-concurrent/watt-concurrent.iml" filepath="$PROJECT_DIR$/watt-concurrent/watt-concurrent.iml" />
       <module fileurl="file://$PROJECT_DIR$/watt-core/watt-core.iml" filepath="$PROJECT_DIR$/watt-core/watt-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/watt-dependencies/watt-dependencies.iml" filepath="$PROJECT_DIR$/watt-dependencies/watt-dependencies.iml" />
       <module fileurl="file://$PROJECT_DIR$/watt-guid/watt-guid.iml" filepath="$PROJECT_DIR$/watt-guid/watt-guid.iml" />
       <module fileurl="file://$PROJECT_DIR$/watt-io/watt-io.iml" filepath="$PROJECT_DIR$/watt-io/watt-io.iml" />
       <module fileurl="file://$PROJECT_DIR$/watt-job/watt-job.iml" filepath="$PROJECT_DIR$/watt-job/watt-job.iml" />

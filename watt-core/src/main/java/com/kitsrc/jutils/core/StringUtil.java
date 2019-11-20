@@ -83,12 +83,24 @@ public class StringUtil extends StringUtils {
     }
 
     /**
+     * safeToString
+     * @param obj 避免 NullPointerException
+     * @return
+     */
+    public static String toString(Object obj) {
+
+        if (obj != null) {
+            return obj.toString();
+        } else {
+            return "";
+        }
+    }
+    /**
      * 去除首尾空格 如果为空 返回 ""
      *
      * @param sourceStr
      * @return
      * @see String#trim()
-     * @see StringUtil#EMPTY
      */
     public static String trim(String sourceStr) {
         if (isEmpty(sourceStr)) {

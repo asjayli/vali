@@ -7,7 +7,6 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="watt-concurrent" />
         <module name="watt-net" />
         <module name="watt-job" />
         <module name="watt-sigar" />
@@ -17,9 +16,11 @@
         <module name="watt-guid" />
         <module name="watt-all" />
         <module name="watt-metrics" />
-        <module name="watt-json" />
+        <module name="watt-concurrent" />
         <module name="watt-spring" />
         <module name="watt-turing" />
+        <module name="watt-json" />
+        <module name="watt-dependencies" />
         <module name="watt-io" />
       </profile>
     </annotationProcessing>
@@ -38,21 +39,22 @@
       <module name="jutils-sigar" target="1.8" />
       <module name="jutils-spring" target="1.8" />
       <module name="jutils-turing" target="1.8" />
-      <module name="watt" target="1.8" />
-      <module name="watt-all" target="1.5" />
-      <module name="watt-concurrent" target="1.5" />
-      <module name="watt-core" target="1.5" />
+      <module name="watt" target="1.5" />
+      <module name="watt-all" target="1.8" />
+      <module name="watt-concurrent" target="1.8" />
+      <module name="watt-core" target="1.8" />
+      <module name="watt-dependencies" target="1.8" />
       <module name="watt-guid" target="1.8" />
-      <module name="watt-io" target="1.5" />
-      <module name="watt-job" target="1.5" />
-      <module name="watt-json" target="1.5" />
-      <module name="watt-metrics" target="1.5" />
-      <module name="watt-net" target="1.5" />
-      <module name="watt-runtime" target="1.5" />
-      <module name="watt-security" target="1.5" />
+      <module name="watt-io" target="1.8" />
+      <module name="watt-job" target="1.8" />
+      <module name="watt-json" target="1.8" />
+      <module name="watt-metrics" target="1.8" />
+      <module name="watt-net" target="1.8" />
+      <module name="watt-runtime" target="1.8" />
+      <module name="watt-security" target="1.8" />
       <module name="watt-sigar" target="1.8" />
       <module name="watt-spring" target="1.8" />
-      <module name="watt-turing" target="1.5" />
+      <module name="watt-turing" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
