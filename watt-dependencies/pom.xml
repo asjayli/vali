@@ -85,4 +85,51 @@
         </dependency>
     </dependencies>
 
+    <profiles>
+        <profile>
+            <!-- 开发模式 -->
+            <id>dev</id>
+            <properties>
+                <profiles.active>dev</profiles.active>
+                <active.profile>dev</active.profile>
+                <profile.version>-SNAPSHOT</profile.version>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <!-- 测试模式  System Integration Testing-->
+            <!--系统集成测试-->
+            <!--功能验证和系统整合测试-->
+            <id>test</id>
+            <properties>
+                <active.profile>test</active.profile>
+                <profiles.active>test</profiles.active>
+                <profile.version>.SIT-SNAPSHOT</profile.version>
+            </properties>
+        </profile>
+        <profile>
+            <!-- 预发模式 User Acceptance Test-->
+            <!--仿真环境 -->
+            <!--用户验收测试-->
+            <id>uat</id>
+            <properties>
+                <profiles.active>uat</profiles.active>
+                <active.profile>uat</active.profile>
+                <profile.version>UAT-SNAPSHOT</profile.version>
+            </properties>
+        </profile>
+        <profile>
+            <!-- 生产模式 -->
+            <!--正式上线-->
+            <id>prod</id>
+            <properties>
+                <profiles.active>prod</profiles.active>
+                <active.profile>prod</active.profile>
+                <profile.version>RELEASE</profile.version>
+            </properties>
+        </profile>
+    </profiles>
+
 </project>

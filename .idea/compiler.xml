@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="watt-concurrent" />
         <module name="watt-net" />
         <module name="watt-job" />
         <module name="watt-sigar" />
@@ -16,15 +17,15 @@
         <module name="watt-guid" />
         <module name="watt-all" />
         <module name="watt-metrics" />
-        <module name="watt-concurrent" />
         <module name="watt-spring" />
         <module name="watt-turing" />
-        <module name="watt-json" />
+        <module name="jdk-feature-tracking" />
         <module name="watt-dependencies" />
         <module name="watt-io" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="jdk-feature-tracking" target="1.5" />
       <module name="jutils-all" target="1.8" />
       <module name="jutils-concurrent" target="1.8" />
       <module name="jutils-core" target="1.8" />

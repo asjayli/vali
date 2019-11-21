@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/jdk-feature-tracking/jdk-feature-tracking.iml" filepath="$PROJECT_DIR$/jdk-feature-tracking/jdk-feature-tracking.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/watt.iml" filepath="$PROJECT_DIR$/.idea/watt.iml" />
       <module fileurl="file://$PROJECT_DIR$/watt-all/watt-all.iml" filepath="$PROJECT_DIR$/watt-all/watt-all.iml" />
       <module fileurl="file://$PROJECT_DIR$/watt-concurrent/watt-concurrent.iml" filepath="$PROJECT_DIR$/watt-concurrent/watt-concurrent.iml" />
@@ -10,7 +11,6 @@
       <module fileurl="file://$PROJECT_DIR$/watt-guid/watt-guid.iml" filepath="$PROJECT_DIR$/watt-guid/watt-guid.iml" />
       <module fileurl="file://$PROJECT_DIR$/watt-io/watt-io.iml" filepath="$PROJECT_DIR$/watt-io/watt-io.iml" />
       <module fileurl="file://$PROJECT_DIR$/watt-job/watt-job.iml" filepath="$PROJECT_DIR$/watt-job/watt-job.iml" />
-      <module fileurl="file://$PROJECT_DIR$/watt-json/watt-json.iml" filepath="$PROJECT_DIR$/watt-json/watt-json.iml" />
       <module fileurl="file://$PROJECT_DIR$/watt-metrics/watt-metrics.iml" filepath="$PROJECT_DIR$/watt-metrics/watt-metrics.iml" />
       <module fileurl="file://$PROJECT_DIR$/watt-net/watt-net.iml" filepath="$PROJECT_DIR$/watt-net/watt-net.iml" />
       <module fileurl="file://$PROJECT_DIR$/watt-runtime/watt-runtime.iml" filepath="$PROJECT_DIR$/watt-runtime/watt-runtime.iml" />
