@@ -1,13 +1,9 @@
-package com.kitsrc.watt.core.time;
+package com.kitsrc.watt.util.time;
 
-import com.google.common.io.Files;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.StringJoiner;
-import java.util.stream.Collectors;
-import org.apache.commons.io.FileUtils;
 
 /**
  * Created with IntelliJ IDEA </p>
@@ -17,7 +13,7 @@ import org.apache.commons.io.FileUtils;
  * @time : 10:42  </p>
  * Description:  </p>
  */
-public enum TimeUnitEnum {
+public enum  TimeUnitEnum {
     /**
      *
      */
@@ -31,19 +27,19 @@ public enum TimeUnitEnum {
 
     private static final String PLURAL_SUFFIX = "s";
 
-    private final List<String> labels;
+    private List<String> labels;
 
-    private final ChronoUnit unit;
+    private ChronoUnit unit;
 
     TimeUnitEnum(ChronoUnit unit, String[]... labels) {
         this.unit = unit;
         List<String> list = new ArrayList<>();
-        list.addAll(labels);
-        this.labels=list;
-
-        //this.labels = Arrays.stream(labels)
-        //                    .flatMap(ls -> Arrays.stream(ls))
-        //                    .collect(Collectors.toList());
+        for (String[] labelArray : labels) {
+            for (String label : labelArray) {
+                list.add(label);
+            }
+        }
+        this.labels = list;
     }
 
     /**
@@ -51,8 +47,7 @@ public enum TimeUnitEnum {
      * @return the singular format of the original label
      */
     private static String[] singular(String label) {
-        Files
-        return new String[]{
+        return new String[] {
                 label
         };
     }
@@ -62,18 +57,18 @@ public enum TimeUnitEnum {
      * @return both the singular format and plural format of the original label
      */
     private static String[] plural(String label) {
-        return new String[]{
+        return new String[] {
                 label,
                 label + PLURAL_SUFFIX
         };
     }
 
     public List<String> getLabels() {
-        return labels;
+        return this.labels;
     }
 
     public ChronoUnit getUnit() {
-        return unit;
+        return this.unit;
     }
 
     public static String getAllUnits() {
