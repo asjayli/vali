@@ -1,5 +1,7 @@
 package com.kitsrc.watt.security.crypto.cert;
 
+import com.kitsrc.watt.security.crypto.BCECUtil;
+import com.kitsrc.watt.security.crypto.SM2Util;
 import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -24,15 +26,13 @@ import org.bouncycastle.pkcs.PKCS12SafeBag;
 import org.bouncycastle.pkcs.PKCS12SafeBagFactory;
 import org.bouncycastle.pkcs.PKCS8EncryptedPrivateKeyInfo;
 import org.bouncycastle.pkcs.jcajce.JcePKCSPBEInputDecryptorProviderBuilder;
-import org.zz.gmhelper.BCECUtil;
-import org.zz.gmhelper.SM2Util;
 
 public class SM2CertUtil {
     public static BCECPublicKey getBCECPublicKey(X509Certificate sm2Cert) {
         ECPublicKey pubKey = (ECPublicKey) sm2Cert.getPublicKey();
         ECPoint q = pubKey.getQ();
         ECParameterSpec parameterSpec = new ECParameterSpec(SM2Util.CURVE, SM2Util.G_POINT,
-            SM2Util.SM2_ECC_N, SM2Util.SM2_ECC_H);
+                                                            SM2Util.SM2_ECC_N, SM2Util.SM2_ECC_H);
         ECPublicKeySpec pubKeySpec = new ECPublicKeySpec(q, parameterSpec);
         return new BCECPublicKey(pubKey.getAlgorithm(), pubKeySpec,
             BouncyCastleProvider.CONFIGURATION);

@@ -1,5 +1,6 @@
 package com.kitsrc.watt.security.crypto.cert;
 
+import com.kitsrc.watt.security.crypto.cert.exception.InvalidX500NameException;
 import java.security.PrivateKey;
 import java.util.Iterator;
 import java.util.Map;
@@ -17,7 +18,7 @@ import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
 import org.bouncycastle.pkcs.PKCS10CertificationRequest;
 import org.bouncycastle.pkcs.PKCS10CertificationRequestBuilder;
 import org.bouncycastle.pkcs.jcajce.JcaPKCS10CertificationRequestBuilder;
-import org.zz.gmhelper.cert.exception.InvalidX500NameException;
+
 
 public class CommonUtil {
     /**
@@ -34,7 +35,8 @@ public class CommonUtil {
         }
         try {
             X500NameBuilder builder = new X500NameBuilder();
-            Iterator itr = names.entrySet().iterator();
+            Iterator itr = names.entrySet()
+                                .iterator();
             BCStyle x500NameStyle = (BCStyle) BCStyle.INSTANCE;
             Map.Entry entry;
             while (itr.hasNext()) {
@@ -49,10 +51,11 @@ public class CommonUtil {
     }
 
     public static PKCS10CertificationRequest createCSR(X500Name subject, SM2PublicKey pubKey, PrivateKey priKey,
-        String signAlgo) throws OperatorCreationException {
+                                                       String signAlgo) throws OperatorCreationException {
         PKCS10CertificationRequestBuilder csrBuilder = new JcaPKCS10CertificationRequestBuilder(subject, pubKey);
         ContentSigner signerBuilder = new JcaContentSignerBuilder(signAlgo)
-            .setProvider(BouncyCastleProvider.PROVIDER_NAME).build(priKey);
+                .setProvider(BouncyCastleProvider.PROVIDER_NAME)
+                .build(priKey);
         return csrBuilder.build(signerBuilder);
     }
 

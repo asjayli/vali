@@ -12,14 +12,40 @@
     <artifactId>watt-net</artifactId>
     <name>${project.artifactId}</name>
     <version>${reversion}</version>
-    <properties></properties>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <encoding>UTF-8</encoding>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+
+        <httpclient.version>4.4.1</httpclient.version>
+        <httpasyncclient.version>4.1.4</httpasyncclient.version>
+    </properties>
     <dependencies>
+        <dependency>
+            <groupId>com.kitsrc.watt</groupId>
+            <artifactId>watt-core</artifactId>
+            <version>${reversion}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>${httpclient.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpmime</artifactId>
+            <version>${httpclient.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpasyncclient</artifactId>
-            <version>4.1.4</version>
+            <version>${httpasyncclient.version}</version>
         </dependency>
-
     </dependencies>
 
 </project>
