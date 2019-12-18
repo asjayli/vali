@@ -20,7 +20,7 @@ import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
-//import org.apache.log4j.Logger;
+
 
 /**
  * 工具类

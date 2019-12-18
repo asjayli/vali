@@ -1,6 +1,6 @@
 package com.kitsrc.watt.net.http.common;
 
-//import com.arronlong.httpclientutil.exception.HttpProcessException;
+
 import com.kitsrc.watt.net.http.exception.HttpProcessException;
 import java.io.File;
 import java.io.FileInputStream;
@@ -70,8 +70,9 @@ public class SSLs {
     }
     
     public synchronized SSLSocketFactory getSSLSF(SSLProtocolVersion sslpv) throws HttpProcessException {
-        if (sslFactory != null)
+        if (sslFactory != null) {
             return sslFactory;
+        }
 		try {
 			SSLContext sc = getSSLContext(sslpv);
 			sc.init(null, new TrustManager[] { simpleVerifier }, null);
@@ -83,8 +84,9 @@ public class SSLs {
     }
     
     public synchronized SSLConnectionSocketFactory getSSLCONNSF(SSLProtocolVersion sslpv) throws HttpProcessException {
-    	if (sslConnFactory != null)
-    		return sslConnFactory;
+    	if (sslConnFactory != null) {
+            return sslConnFactory;
+        }
     	try {
 	    	SSLContext sc = getSSLContext(sslpv);
 //	    	sc.init(null, new TrustManager[] { simpleVerifier }, null);
@@ -97,8 +99,9 @@ public class SSLs {
     }
     
     public synchronized SSLIOSessionStrategy getSSLIOSS(SSLProtocolVersion sslpv) throws HttpProcessException {
-    	if (sslIOSessionStrategy != null)
-    		return sslIOSessionStrategy;
+    	if (sslIOSessionStrategy != null) {
+            return sslIOSessionStrategy;
+        }
 		try {
 			SSLContext sc = getSSLContext(sslpv);
 //			sc.init(null, new TrustManager[] { simpleVerifier }, null);

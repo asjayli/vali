@@ -9,8 +9,8 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.protocol.HttpContext;
 
-//import com.tgb.ccl.http.exception.HttpProcessException;
-//import com.tgb.ccl.http.httpclient.builder.HCB;
+
+
 
 /** 
  * 请求配置类

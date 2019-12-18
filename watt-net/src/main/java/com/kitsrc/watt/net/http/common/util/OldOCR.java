@@ -1,11 +1,11 @@
 package com.kitsrc.watt.net.http.common.util;
 
-//import com.arronlong.httpclientutil.HttpClientUtil;
-//import com.arronlong.httpclientutil.builder.HCB;
-//import com.arronlong.httpclientutil.common.HttpConfig;
-//import com.arronlong.httpclientutil.common.HttpHeader;
-//import com.arronlong.httpclientutil.common.Utils;
-//import com.arronlong.httpclientutil.exception.HttpProcessException;
+
+
+
+
+
+
 import com.kitsrc.watt.net.HttpClientUtil;
 import com.kitsrc.watt.net.http.builder.HCB;
 import com.kitsrc.watt.net.http.common.HttpConfig;
@@ -213,7 +213,7 @@ public class OldOCR {
 	 */
 	@SuppressWarnings("resource")
 	public static String ocrCode4Net(HttpConfig config, String savePath, int limitCodeLen){
-		if(savePath==null || savePath.equals("")){//如果不保存图片，则直接使用图片地址的方式获取验证码
+		if(savePath==null || "".equals(savePath)){//如果不保存图片，则直接使用图片地址的方式获取验证码
 			return ocrCode4Net(config.url(), limitCodeLen);
 		}
 		

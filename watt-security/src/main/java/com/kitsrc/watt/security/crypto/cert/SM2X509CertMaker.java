@@ -88,8 +88,8 @@ public class SM2X509CertMaker {
     }
 
     private JcaContentSignerBuilder makeContentSignerBuilder(PublicKey issPub) throws Exception {
-        if (issPub.getAlgorithm()
-                  .equals("EC")) {
+        if ("EC"
+                  .equals(issPub.getAlgorithm())) {
             JcaContentSignerBuilder contentSignerBuilder = new JcaContentSignerBuilder(SIGN_ALGO_SM3WITHSM2);
             contentSignerBuilder.setProvider(BouncyCastleProvider.PROVIDER_NAME);
             return contentSignerBuilder;

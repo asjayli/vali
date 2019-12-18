@@ -1,11 +1,11 @@
 package com.kitsrc.watt.net;
 
-//import com.arronlong.httpclientutil.builder.HCB;
-//import com.arronlong.httpclientutil.common.HttpConfig;
-//import com.arronlong.httpclientutil.common.HttpMethods;
-//import com.arronlong.httpclientutil.common.HttpResult;
-//import com.arronlong.httpclientutil.common.Utils;
-//import com.arronlong.httpclientutil.exception.HttpProcessException;
+
+
+
+
+
+
 import com.kitsrc.watt.net.http.builder.HCB;
 import com.kitsrc.watt.net.http.common.HttpConfig;
 import com.kitsrc.watt.net.http.common.HttpMethods;
@@ -576,7 +576,9 @@ public class HttpClientUtil {
 	 */
 	private static void close(HttpResponse resp) {
 		try {
-			if(resp == null) return;
+			if(resp == null) {
+                return;
+            }
 			//如果CloseableHttpResponse 是resp的父类，则支持关闭
 			if(CloseableHttpResponse.class.isAssignableFrom(resp.getClass())){
 				((CloseableHttpResponse)resp).close();

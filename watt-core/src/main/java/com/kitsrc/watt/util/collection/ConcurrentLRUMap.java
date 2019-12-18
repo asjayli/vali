@@ -34,22 +34,22 @@ public class ConcurrentLRUMap<K, V> extends LinkedHashMap<K, V> implements Concu
 
     @Override
     public V get(Object key) {
+        lock.lock();
         try {
-            lock.lock();
+
             return super.get(key);
-        }
-        finally {
+        } finally {
             lock.unlock();
         }
     }
 
     @Override
     public V put(K key, V value) {
+        lock.lock();
         try {
-            lock.lock();
+
             return super.put(key, value);
-        }
-        finally {
+        } finally {
             lock.unlock();
         }
     }
@@ -90,11 +90,11 @@ public class ConcurrentLRUMap<K, V> extends LinkedHashMap<K, V> implements Concu
      */
     @Override
     public void putAll(Map<? extends K, ? extends V> m) {
+        lock.lock();
         try {
-            lock.lock();
+
             super.putAll(m);
-        }
-        finally {
+        } finally {
             lock.unlock();
         }
 
