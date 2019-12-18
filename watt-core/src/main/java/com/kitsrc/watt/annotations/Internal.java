@@ -17,25 +17,19 @@
  *
  */
 
-package com.kitsrc.watt.annotation;
+package com.kitsrc.watt.annotations;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Target;
 
 /**
- * Annotation to mark classes and methods for public use, but with evolving interfaces.
+ * Interface to mark methods within stable, public APIs as an internal developer API.
  *
- * <p>Classes and methods with this annotation are intended for public use and have stable behavior.
- * However, their interfaces and signatures are not considered to be stable and might be changed
- * across versions.
- *
- * <p>This annotation also excludes methods and classes with evolving interfaces / signatures
- * within classes annotated with {@link Public}.
- *
+ * <p>Developer APIs are stable but internal to Flink and might change across releases.
  */
 @Documented
-@Target({ ElementType.TYPE, ElementType.METHOD, ElementType.FIELD, ElementType.CONSTRUCTOR })
+@Target({ ElementType.TYPE, ElementType.METHOD, ElementType.CONSTRUCTOR })
 @Public
-public @interface PublicEvolving {
+public @interface Internal {
 }

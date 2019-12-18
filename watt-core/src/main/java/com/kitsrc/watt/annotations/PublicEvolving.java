@@ -17,21 +17,25 @@
  *
  */
 
-package com.kitsrc.watt.annotation;
+package com.kitsrc.watt.annotations;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Target;
 
 /**
- * This annotations declares that a function, field, constructor, or entire type, is only visible for
- * testing purposes.
+ * Annotation to mark classes and methods for public use, but with evolving interfaces.
  *
- * <p>This annotation is typically attached when for example a method should be {@code private}
- * (because it is not intended to be called externally), but cannot be declared private, because
- * some tests need to have access to it.
+ * <p>Classes and methods with this annotation are intended for public use and have stable behavior.
+ * However, their interfaces and signatures are not considered to be stable and might be changed
+ * across versions.
+ *
+ * <p>This annotation also excludes methods and classes with evolving interfaces / signatures
+ * within classes annotated with {@link Public}.
+ *
  */
 @Documented
 @Target({ ElementType.TYPE, ElementType.METHOD, ElementType.FIELD, ElementType.CONSTRUCTOR })
-@Internal
-public @interface VisibleForTesting {}
+@Public
+public @interface PublicEvolving {
+}

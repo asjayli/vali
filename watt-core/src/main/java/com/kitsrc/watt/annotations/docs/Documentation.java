@@ -16,9 +16,9 @@
  * limitations under the License.
  */
 
-package com.kitsrc.watt.annotation.docs;
+package com.kitsrc.watt.annotations.docs;
 
-import com.kitsrc.watt.annotation.Internal;
+import com.kitsrc.watt.annotations.Internal;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

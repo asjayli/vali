@@ -14,24 +14,25 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *
  */
 
-package com.kitsrc.watt.annotation;
+package com.kitsrc.watt.annotations.docs;
 
-import java.lang.annotation.Documented;
+import com.kitsrc.watt.annotations.Internal;
 import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Annotation for marking classes as public, stable interfaces.
- *
- * <p>Classes, methods and fields with this annotation are stable across minor releases (1.0, 1.1, 1.2). In other words,
- * applications using @Public annotated classes will compile against newer versions of the same major release.
- *
- * <p>Only major releases (1.0, 2.0, 3.0) can break interfaces with this annotation.
+ * Annotation used on classes containing config options that enables the separation of options into different
+ * tables based on key prefixes. A config option is assigned to a {@link ConfigGroup} if the option key matches
+ * the group prefix. If a key matches multiple prefixes the longest matching prefix takes priority. An option is never
+ * assigned to multiple groups. Options that don't match any group are implicitly added to a default group.
  */
-@Documented
 @Target(ElementType.TYPE)
-@Public
-public @interface Public {}
+@Retention(RetentionPolicy.RUNTIME)
+@Internal
+public @interface ConfigGroups {
+	ConfigGroup[] groups() default {};
+}

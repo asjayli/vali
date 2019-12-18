@@ -16,23 +16,20 @@
  * limitations under the License.
  */
 
-package com.kitsrc.watt.annotation.docs;
+package com.kitsrc.watt.annotations.docs;
 
-import com.kitsrc.watt.annotation.Internal;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
+import com.kitsrc.watt.annotations.Internal;
 import java.lang.annotation.Target;
 
 /**
- * Annotation used on classes containing config options that enables the separation of options into different
- * tables based on key prefixes. A config option is assigned to a {@link ConfigGroup} if the option key matches
- * the group prefix. If a key matches multiple prefixes the longest matching prefix takes priority. An option is never
- * assigned to multiple groups. Options that don't match any group are implicitly added to a default group.
+ * A class that specifies a group of config options. The name of the group will be used as the basis for the
+ * filename of the generated html file, as defined in
+ *
+ * @see ConfigGroups
  */
-@Target(ElementType.TYPE)
-@Retention(RetentionPolicy.RUNTIME)
+@Target({})
 @Internal
-public @interface ConfigGroups {
-	ConfigGroup[] groups() default {};
+public @interface ConfigGroup {
+	String name();
+	String keyPrefix();
 }

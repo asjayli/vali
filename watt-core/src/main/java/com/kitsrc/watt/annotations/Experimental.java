@@ -17,7 +17,7 @@
  *
  */
 
-package com.kitsrc.watt.annotation;
+package com.kitsrc.watt.annotations;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
