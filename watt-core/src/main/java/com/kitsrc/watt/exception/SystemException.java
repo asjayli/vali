@@ -1,7 +1,8 @@
 package com.kitsrc.watt.exception;
 
-import com.vandream.hamster.core.api.BaseException;
-import com.vandream.hamster.core.api.ResultStatus;
+
+import com.kitsrc.watt.api.BaseException;
+import com.kitsrc.watt.api.ResultStatus;
 import lombok.Getter;
 import lombok.Setter;
 

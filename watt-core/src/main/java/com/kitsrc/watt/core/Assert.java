@@ -49,7 +49,7 @@ public class Assert {
      */
     public static void state(boolean expression, Supplier<String> messageSupplier) {
         if (!expression) {
-            throw new IllegalStateException(Assert.nullSafeGet(messageSupplier));
+            throw new IllegalStateException(nullSafeGet(messageSupplier));
         }
     }
 
@@ -84,11 +84,44 @@ public class Assert {
      */
     public static void isTrue(boolean expression, Supplier<String> messageSupplier) {
         if (!expression) {
-            throw new IllegalArgumentException(Assert.nullSafeGet(messageSupplier));
+            throw new IllegalArgumentException(nullSafeGet(messageSupplier));
         }
     }
 
+    /**
+     * 断言是否为假，如果为 {@code true} 抛出 {@code IllegalArgumentException} 异常<br>
+     *
+     * <pre class="code">
+     * Assert.isFalse(i &lt; 0, "The value must be greater than zero");
+     * </pre>
+     *
+     * @param expression 波尔值
+     * @param errorMsgTemplate 错误抛出异常附带的消息模板，变量用{}代替
+     * @param params 参数列表
+     * @throws IllegalArgumentException if expression is {@code false}
+     */
+    public static void isFalse(boolean expression, String errorMsgTemplate, Object... params) throws IllegalArgumentException {
+        if (expression) {
+            throw new IllegalArgumentException(StringUtil.format(errorMsgTemplate, params));
+        }
+    }
 
+    /**
+     * 断言是否为假，如果为 {@code true} 抛出 {@code IllegalArgumentException} 异常<br>
+     *
+     * <pre class="code">
+     * Assert.isFalse(i &lt; 0);
+     * </pre>
+     *
+     * @param expression 波尔值
+     * @throws IllegalArgumentException if expression is {@code false}
+     */
+    public static void isFalse(boolean expression) throws IllegalArgumentException {
+        if (expression) {
+
+        }
+        isFalse(expression, "[Assertion failed] - this expression must be false");
+    }
     /**
      * Assert that an object is {@code null}.
      * <pre class="code">Assert.isNull(value, "The value must be null");</pre>
@@ -117,7 +150,7 @@ public class Assert {
      */
     public static void isNull(Object object, Supplier<String> messageSupplier) {
         if (object != null) {
-            throw new IllegalArgumentException(Assert.nullSafeGet(messageSupplier));
+            throw new IllegalArgumentException(nullSafeGet(messageSupplier));
         }
     }
 
@@ -150,7 +183,7 @@ public class Assert {
      */
     public static void notNull(Object object, Supplier<String> messageSupplier) {
         if (object == null) {
-            throw new IllegalArgumentException(Assert.nullSafeGet(messageSupplier));
+            throw new IllegalArgumentException(nullSafeGet(messageSupplier));
         }
     }
 
@@ -187,7 +220,7 @@ public class Assert {
      */
     public static void notBlank(String text, Supplier<String> messageSupplier) {
         if (StringUtil.isBlank(text)) {
-            throw new IllegalArgumentException(Assert.nullSafeGet(messageSupplier));
+            throw new IllegalArgumentException(nullSafeGet(messageSupplier));
         }
     }
 
@@ -203,7 +236,7 @@ public class Assert {
      */
     public static void doesNotContain(String textToSearch, String substring, String message) {
         if (StringUtil.isNotBlank(textToSearch) && StringUtil.isNotBlank(substring) &&
-                textToSearch.contains(substring)) {
+            textToSearch.contains(substring)) {
             throw new IllegalArgumentException(message);
         }
     }
@@ -223,8 +256,8 @@ public class Assert {
      */
     public static void doesNotContain(String textToSearch, String substring, Supplier<String> messageSupplier) {
         if (StringUtil.isNotBlank(textToSearch) && StringUtil.isNotBlank(substring) &&
-                textToSearch.contains(substring)) {
-            throw new IllegalArgumentException(Assert.nullSafeGet(messageSupplier));
+            textToSearch.contains(substring)) {
+            throw new IllegalArgumentException(nullSafeGet(messageSupplier));
         }
     }
 
@@ -259,7 +292,7 @@ public class Assert {
      */
     public static void notEmpty(Object[] array, Supplier<String> messageSupplier) {
         if (ObjectUtil.isEmpty(array)) {
-            throw new IllegalArgumentException(Assert.nullSafeGet(messageSupplier));
+            throw new IllegalArgumentException(nullSafeGet(messageSupplier));
         }
     }
 
@@ -300,7 +333,7 @@ public class Assert {
         if (array != null) {
             for (Object element : array) {
                 if (element == null) {
-                    throw new IllegalArgumentException(Assert.nullSafeGet(messageSupplier));
+                    throw new IllegalArgumentException(nullSafeGet(messageSupplier));
                 }
             }
         }
@@ -339,7 +372,7 @@ public class Assert {
      */
     public static void notEmpty(Collection<?> collection, Supplier<String> messageSupplier) {
         if (CollectionUtil.isEmpty(collection)) {
-            throw new IllegalArgumentException(Assert.nullSafeGet(messageSupplier));
+            throw new IllegalArgumentException(nullSafeGet(messageSupplier));
         }
     }
 
@@ -374,7 +407,7 @@ public class Assert {
      */
     public static void notEmpty(Map<?, ?> map, Supplier<String> messageSupplier) {
         if (CollectionUtil.isEmpty(map)) {
-            throw new IllegalArgumentException(Assert.nullSafeGet(messageSupplier));
+            throw new IllegalArgumentException(nullSafeGet(messageSupplier));
         }
     }
 
@@ -393,9 +426,9 @@ public class Assert {
      * @throws IllegalArgumentException if the object is not an instance of type
      */
     public static void isInstanceOf(Class<?> type, Object obj, String message) {
-        Assert.notNull(type, "Type to check against must not be null");
+        notNull(type, "Type to check against must not be null");
         if (!type.isInstance(obj)) {
-            Assert.instanceCheckFailed(type, obj, message);
+            instanceCheckFailed(type, obj, message);
         }
     }
 
@@ -413,9 +446,9 @@ public class Assert {
      * @since 5.0
      */
     public static void isInstanceOf(Class<?> type, Object obj, Supplier<String> messageSupplier) {
-        Assert.notNull(type, "Type to check against must not be null");
+        notNull(type, "Type to check against must not be null");
         if (!type.isInstance(obj)) {
-            Assert.instanceCheckFailed(type, obj, Assert.nullSafeGet(messageSupplier));
+            instanceCheckFailed(type, obj, nullSafeGet(messageSupplier));
         }
     }
 
@@ -428,7 +461,7 @@ public class Assert {
      * @throws IllegalArgumentException if the object is not an instance of type
      */
     public static void isInstanceOf(Class<?> type, Object obj) {
-        Assert.isInstanceOf(type, obj, "");
+        isInstanceOf(type, obj, "");
     }
 
     /**
@@ -445,9 +478,9 @@ public class Assert {
      * @throws IllegalArgumentException if the classes are not assignable
      */
     public static void isAssignable(Class<?> superType, Class<?> subType, String message) {
-        Assert.notNull(superType, "Super type to check against must not be null");
+        notNull(superType, "Super type to check against must not be null");
         if (subType == null || !superType.isAssignableFrom(subType)) {
-            Assert.assignableCheckFailed(superType, subType, message);
+            assignableCheckFailed(superType, subType, message);
         }
     }
 
@@ -465,9 +498,9 @@ public class Assert {
      * @since 5.0
      */
     public static void isAssignable(Class<?> superType, Class<?> subType, Supplier<String> messageSupplier) {
-        Assert.notNull(superType, "Super type to check against must not be null");
+        notNull(superType, "Super type to check against must not be null");
         if (subType == null || !superType.isAssignableFrom(subType)) {
-            Assert.assignableCheckFailed(superType, subType, Assert.nullSafeGet(messageSupplier));
+            assignableCheckFailed(superType, subType, nullSafeGet(messageSupplier));
         }
     }
 
@@ -480,7 +513,7 @@ public class Assert {
      * @throws IllegalArgumentException if the classes are not assignable
      */
     public static void isAssignable(Class<?> superType, Class<?> subType) {
-        Assert.isAssignable(superType, subType, "");
+        isAssignable(superType, subType, "");
     }
 
 
@@ -490,11 +523,11 @@ public class Assert {
         String result = "";
         boolean defaultMessage = true;
         if (StringUtil.isNotBlank(msg)) {
-            if (Assert.endsWithSeparator(msg)) {
+            if (endsWithSeparator(msg)) {
                 result = msg + " ";
             }
             else {
-                result = Assert.messageWithTypeName(msg, className);
+                result = messageWithTypeName(msg, className);
                 defaultMessage = false;
             }
         }
@@ -508,11 +541,11 @@ public class Assert {
         String result = "";
         boolean defaultMessage = true;
         if (StringUtil.isNotBlank(msg)) {
-            if (Assert.endsWithSeparator(msg)) {
+            if (endsWithSeparator(msg)) {
                 result = msg + " ";
             }
             else {
-                result = Assert.messageWithTypeName(msg, subType);
+                result = messageWithTypeName(msg, subType);
                 defaultMessage = false;
             }
         }

@@ -18,10 +18,15 @@
 
 package com.kitsrc.watt.core.lambda;
 
-import org.apache.flink.core.plugin.TemporaryClassLoaderContext;
-import org.apache.flink.util.function.SupplierWithException;
-import org.apache.flink.util.function.ThrowingConsumer;
-import org.apache.flink.util.function.ThrowingRunnable;
+//import org.apache.flink.core.plugin.TemporaryClassLoaderContext;
+//import org.apache.flink.util.function.SupplierWithException;
+//import org.apache.flink.util.function.ThrowingConsumer;
+//import org.apache.flink.util.function.ThrowingRunnable;
+
+import com.kitsrc.watt.core.ExceptionUtil;
+import com.kitsrc.watt.core.function.SupplierWithException;
+import com.kitsrc.watt.core.function.ThrowingConsumer;
+import com.kitsrc.watt.core.function.ThrowingRunnable;
 
 /**
  * This class offers utility functions for Java's lambda features.
@@ -55,7 +60,7 @@ public final class LambdaUtil {
 					try {
 						throwingConsumer.accept(input);
 					} catch (Exception ex) {
-						exception = ExceptionUtils.firstOrSuppressed(ex, exception);
+						exception = ExceptionUtil.firstOrSuppressed(ex, exception);
 					}
 				}
 			}
@@ -73,14 +78,14 @@ public final class LambdaUtil {
 	 * <p>The method will make sure to set the context class loader of the calling thread
 	 * back to what it was before after the runnable completed.
 	 */
-	public static <E extends Throwable> void withContextClassLoader(
-			final ClassLoader cl,
-			final ThrowingRunnable<E> r) throws E {
-
-		try (TemporaryClassLoaderContext tmpCl = new TemporaryClassLoaderContext(cl)) {
-			r.run();
-		}
-	}
+	//public static <E extends Throwable> void withContextClassLoader(
+	//		final ClassLoader cl,
+	//		final ThrowingRunnable<E> r) throws E {
+    //
+	//	try (TemporaryClassLoaderContext tmpCl = new TemporaryClassLoaderContext(cl)) {
+	//		r.run();
+	//	}
+	//}
 
 	/**
 	 * Runs the given runnable with the given ClassLoader as the thread's
@@ -89,12 +94,12 @@ public final class LambdaUtil {
 	 * <p>The method will make sure to set the context class loader of the calling thread
 	 * back to what it was before after the runnable completed.
 	 */
-	public static <R, E extends Throwable> R withContextClassLoader(
-			final ClassLoader cl,
-			final SupplierWithException<R, E> s) throws E {
-
-		try (TemporaryClassLoaderContext tmpCl = new TemporaryClassLoaderContext(cl)) {
-			return s.get();
-		}
-	}
+	//public static <R, E extends Throwable> R withContextClassLoader(
+	//		final ClassLoader cl,
+	//		final SupplierWithException<R, E> s) throws E {
+    //
+	//	try (TemporaryClassLoaderContext tmpCl = new TemporaryClassLoaderContext(cl)) {
+	//		return s.get();
+	//	}
+	//}
 }

@@ -13,7 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package com.kitsrc.watt.util;
+package com.kitsrc.watt.core;
 
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
@@ -22,7 +22,6 @@ import java.net.SocketAddress;
 import java.util.Enumeration;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

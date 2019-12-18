@@ -18,11 +18,11 @@
 
 package com.kitsrc.watt.annotation.docs;
 
+import com.kitsrc.watt.annotation.Internal;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-import org.apache.flink.annotation.Internal;
 
 /**
  * Annotation used on classes containing config options that enables the separation of options into different

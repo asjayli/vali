@@ -1,9 +1,8 @@
-package com.kitsrc.watt.util;
+package com.kitsrc.watt.core;
 
 
+import com.kitsrc.watt.constant.ClassConstants;
 import java.math.BigDecimal;
-
-import com.vandream.hamster.core.constant.ClassConstants;
 
 /**
  * Created with IntelliJ IDEA

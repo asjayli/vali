@@ -1,6 +1,7 @@
 package com.kitsrc.watt.constant;
 
-import com.vandream.hamster.core.api.ResultStatus;
+
+import com.kitsrc.watt.api.ResultStatus;
 
 /**
  * package name: com.vandream.hamster.common.model

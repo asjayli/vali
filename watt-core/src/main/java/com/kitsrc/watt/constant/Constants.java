@@ -36,38 +36,6 @@ public interface Constants {
      */
     Charset DEFAULT_CHARSET = Charset.forName(DEFAULT_CHARSET_NAME);
     /**
-     * 大写 NULL 字符串 "NULL"
-     */
-    String UPPER_NULL = "NULL";
-    /**
-     * 小写 null 字符串 "null"
-     */
-    String LOWER_NULL = "null";
-    /**
-     * 下划线
-     */
-    char UNDERLINE = '_';
-    /**
-     * 英文文本内容里的连字符
-     */
-    char HYPHEN = '-';
-    /**
-     * empty string
-     */
-    String EMPTY = "";
-    /**
-     * 分号
-     */
-    String SEMICOLON = ";";
-    /**
-     * 斜杠
-     */
-    String SLASH = "/";
-    /**
-     * 反斜杠
-     */
-    String BACKSLASH = "\\";
-    /**
      * vandream 所有服务器环境 环境变量标志符  服务器编码名称
      * VCLOUD_SERVER=1
      */

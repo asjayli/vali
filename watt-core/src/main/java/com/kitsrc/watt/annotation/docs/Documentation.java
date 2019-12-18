@@ -18,11 +18,11 @@
 
 package com.kitsrc.watt.annotation.docs;
 
+import com.kitsrc.watt.annotation.Internal;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-import org.apache.flink.annotation.Internal;
 
 /**
  * Collection of annotations to modify the behavior of the documentation generators.

@@ -13,7 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package com.kitsrc.watt.util;
+package com.kitsrc.watt.core;
 
 import java.time.Duration;
 

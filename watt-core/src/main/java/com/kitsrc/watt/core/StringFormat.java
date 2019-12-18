@@ -1,4 +1,4 @@
-package com.kitsrc.watt.util;
+package com.kitsrc.watt.core;
 
 import java.util.HashSet;
 import java.util.Set;

@@ -9,7 +9,6 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-
 import org.apache.commons.lang3.ObjectUtils;
 
 /**
@@ -43,41 +42,37 @@ public class ObjectUtil extends ObjectUtils {
     public static boolean isPrimitive(Class<?> clazz) {
         if (clazz == null) {
             return false;
-        }
-        else {
+        } else {
             if (clazz.isPrimitive()) {
                 return true;
-            }
-            else {
+            } else {
                 return String.class.equals(clazz) || String[].class.equals(clazz) ||
-                        ClassUtil.isPrimitiveArray(clazz) ||
-                        ClassUtil.isPrimitiveWrapper(clazz) ||
-                        ClassUtil.isPrimitiveWrapperArray(clazz);
+                       ClassUtil.isPrimitiveArray(clazz) ||
+                       ClassUtil.isPrimitiveWrapper(clazz) ||
+                       ClassUtil.isPrimitiveWrapperArray(clazz);
             }
         }
     }
 
     public static boolean isPrimitive(Object o) {
-        if (ObjectUtil.isEmpty(o)) {
+        if (isEmpty(o)) {
             return false;
-        }
-        else {
-            return ObjectUtil.isPrimitive(o.getClass());
+        } else {
+            return isPrimitive(o.getClass());
         }
 
     }
 
     public static boolean isPrimitive(Field field) {
-        if (ObjectUtil.isEmpty(field)) {
+        if (isEmpty(field)) {
             return false;
-        }
-        else {
-            return ObjectUtil.isPrimitive(field.getType());
+        } else {
+            return isPrimitive(field.getType());
         }
     }
 
     public static boolean isNotPrimitive(Field field) {
-        return !ObjectUtil.isPrimitive(field);
+        return !isPrimitive(field);
     }
 
     /**
@@ -87,7 +82,7 @@ public class ObjectUtil extends ObjectUtils {
      * @return
      */
     public static boolean isNotPrimitive(Class<?> clazz) {
-        return !ObjectUtil.isPrimitive(clazz);
+        return !isPrimitive(clazz);
     }
 
 
@@ -113,7 +108,7 @@ public class ObjectUtil extends ObjectUtils {
             return true;
         }
         if (obj.getClass()
-                .isArray()) {
+               .isArray()) {
             return Array.getLength(obj) == 0;
         }
         if (obj instanceof CharSequence) {
@@ -130,7 +125,7 @@ public class ObjectUtil extends ObjectUtils {
     }
 
     public static boolean isNotEmpty(Object obj) {
-        return !ObjectUtil.isEmpty(obj);
+        return !isEmpty(obj);
     }
 
     /**
@@ -140,7 +135,7 @@ public class ObjectUtil extends ObjectUtils {
      * @return the boolean
      */
     public static boolean isEmpty(Object[] array) {
-        return !ObjectUtil.isNotEmpty(array);
+        return !isNotEmpty(array);
     }
 
     /**
@@ -154,7 +149,7 @@ public class ObjectUtil extends ObjectUtils {
     }
 
     public static Class<?> getCollectionFieldArgsClass(Field collectionField) throws
-            ClassNotFoundException {
+                                                                              ClassNotFoundException {
         String className = "";
         ParameterizedType listGenericType = (ParameterizedType) collectionField.getGenericType();
         Type[] listActualTypeArguments = listGenericType.getActualTypeArguments();
@@ -175,7 +170,7 @@ public class ObjectUtil extends ObjectUtils {
      * @return the corresponding object array (never {@code null})
      */
     private static Object[] toObjectArray(Object source) {
-        if (ObjectUtil.isEmpty(source)) {
+        if (isEmpty(source)) {
             return null;
         }
         if (source instanceof Object[]) {
@@ -185,7 +180,7 @@ public class ObjectUtil extends ObjectUtils {
             return new Object[0];
         }
         if (!source.getClass()
-                .isArray()) {
+                   .isArray()) {
             throw new IllegalArgumentException("Source is not an array: " + source);
         }
         int length = Array.getLength(source);
@@ -193,7 +188,7 @@ public class ObjectUtil extends ObjectUtils {
             return new Object[0];
         }
         Class<?> wrapperType = Array.get(source, 0)
-                .getClass();
+                                    .getClass();
         Object[] newArray = (Object[]) Array.newInstance(wrapperType, length);
         for (int i = 0; i < length; i++) {
             newArray[i] = Array.get(source, i);
@@ -257,8 +252,9 @@ public class ObjectUtil extends ObjectUtils {
      * @throws IllegalAccessException
      * @throws InvocationTargetException
      */
-    private static void populate(Object bean, Map<String, ? extends Object> properties)
-            throws IllegalAccessException, InvocationTargetException {
+    @SuppressWarnings("all")
+    private void populate(final Object bean, final Map<String, ? extends Object> properties)
+    throws IllegalAccessException, InvocationTargetException {
 
         // Do nothing unless both arguments have been specified
         if ((bean == null) || (properties == null)) {
@@ -266,9 +262,9 @@ public class ObjectUtil extends ObjectUtils {
         }
 
         // Loop through the property name/value pairs to be set
-        for (Map.Entry<String, ? extends Object> entry : properties.entrySet()) {
+        for (final Map.Entry<String, ? extends Object> entry : properties.entrySet()) {
             // Identify the property name and value(s) to be assigned
-            String name = entry.getKey();
+            final String name = entry.getKey();
             if (name == null) {
                 continue;
             }
@@ -286,7 +282,7 @@ public class ObjectUtil extends ObjectUtils {
      * @param clazz
      * @return
      */
-    private static <T> T convert(Object values, Class<T> clazz) {
+    private <T> T convert(final Object values, final Class<T> clazz) {
         //TODO ObjectUtil.convert 待实现
         return null;
     }
@@ -298,7 +294,7 @@ public class ObjectUtil extends ObjectUtils {
      * @param clazz
      * @return
      */
-    private static <T> T convert(Object[] values, Class<T> clazz) {
+    private <T> T convert(final Object[] values, final Class<T> clazz) {
         //TODO ObjectUtil.convert 待实现
         return null;
     }
@@ -310,7 +306,7 @@ public class ObjectUtil extends ObjectUtils {
      * @param clazz
      * @return
      */
-    private static <T> T convert(List<Object> values, Class<T> clazz) {
+    private <T> T convert(final List<Object> values, final Class<T> clazz) {
         //TODO ObjectUtil.convert 待实现
         return null;
     }

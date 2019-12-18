@@ -1,7 +1,6 @@
-package com.kitsrc.watt.util;
+package com.kitsrc.watt.core;
 
 import java.io.*;
-
 import lombok.Cleanup;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

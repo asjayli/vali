@@ -1,7 +1,16 @@
 package com.kitsrc.watt.core;
 
-import com.kitsrc.watt.core.constants.StringPool;
+import com.kitsrc.watt.constant.Constants;
+import com.kitsrc.watt.constant.StringPool;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.List;
+import java.util.StringTokenizer;
 import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import lombok.Cleanup;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -12,9 +21,14 @@ import org.apache.commons.lang3.StringUtils;
  * @time : 19:35
  * Description:
  */
+@SuppressWarnings({"unchecked", "rawtypes"})
 public class StringUtil extends StringUtils {
 
 
+    /**
+     * 匹配字符串中所有空白字符 空格 制表符 换行符 \s 可以匹配空格、制表符、换页符等空白字符
+     */
+    private static final Pattern PATTERN_BLANK_CHARACTER = Pattern.compile("\\s*|\t*|\r*|\n*");
 
 
     /**
@@ -30,10 +44,9 @@ public class StringUtil extends StringUtils {
         // of > -1 表示找到位置
         if (of < 0) {
             if (capitalized) {
-                return capitalize(underlineName);
-            }
-            else {
-                return uncapitalize(underlineName);
+                return StringUtil.capitalize(underlineName);
+            } else {
+                return StringUtil.uncapitalize(underlineName);
             }
         }
         char[] charArray = underlineName.toCharArray();
@@ -54,8 +67,7 @@ public class StringUtil extends StringUtils {
                         ch = Character.toLowerCase(ch);
 
                     }
-                }
-                else if (underline) {
+                } else if (underline) {
                     underline = false;
                     //c = Character.toLowerCase(c);
 
@@ -69,8 +81,7 @@ public class StringUtil extends StringUtils {
                     if (capitalized) {
                         ch = Character.toUpperCase(ch);
                     }
-                }
-                else if (underline) {
+                } else if (underline) {
                     underline = false;
                     ch = Character.toUpperCase(ch);
 
@@ -84,6 +95,7 @@ public class StringUtil extends StringUtils {
 
     /**
      * safeToString
+     *
      * @param obj 避免 NullPointerException
      * @return
      */
@@ -95,18 +107,19 @@ public class StringUtil extends StringUtils {
             return "";
         }
     }
+
     /**
      * 去除首尾空格 如果为空 返回 ""
      *
      * @param sourceStr
      * @return
      * @see String#trim()
+     * @see StringUtil#EMPTY
      */
     public static String trim(String sourceStr) {
-        if (isEmpty(sourceStr)) {
-            return StringPool.EMPTY;
-        }
-        else {
+        if (StringUtil.isEmpty(sourceStr)) {
+            return StringUtil.EMPTY;
+        } else {
             return sourceStr.trim();
         }
     }
@@ -123,7 +136,7 @@ public class StringUtil extends StringUtils {
         StringBuilder builder = new StringBuilder();
         {
             // 去除首尾下划线
-            source = trim(source);
+            source = StringUtil.trim(source);
 
             // 纯大写字符串 原样返回
             String upperCase = source.toUpperCase();
@@ -141,9 +154,8 @@ public class StringUtil extends StringUtils {
                 if (i > 0) {
                     builder.append(StringPool.UNDERLINE);
                 }
-            }
-            else if (Character.isDigit(c) || Character.isLowerCase(c) || Character
-                                                                                 .compare(c, StringPool.UNDERLINE) == 0) {
+            } else if (Character.isDigit(c) || Character.isLowerCase(c) || Character
+                                                                                   .compare(c, StringPool.UNDERLINE) == 0) {
                 builder.append(Character.toLowerCase(c));
             }
         }
@@ -160,10 +172,9 @@ public class StringUtil extends StringUtils {
         String dest = null;
         if (str == null) {
             return dest;
-        }
-        else {
+        } else {
 
-            Matcher m = StringPool.PATTERN_BLANK_CHARACTER.matcher(str);
+            Matcher m = PATTERN_BLANK_CHARACTER.matcher(str);
             dest = m.replaceAll("");
             return dest;
         }
@@ -175,11 +186,11 @@ public class StringUtil extends StringUtils {
      * <p>Whitespace is defined by {@link Character#isWhitespace(char)}.</p>
      * <p>
      * <pre>
-     * isBlank(null)      = true
-     * isBlank("")        = true
-     * isBlank(" ")       = true
-     * isBlank("bob")     = false
-     * isBlank("  bob  ") = false
+     * StringUtil.isBlank(null)      = true
+     * StringUtil.isBlank("")        = true
+     * StringUtil.isBlank(" ")       = true
+     * StringUtil.isBlank("bob")     = false
+     * StringUtil.isBlank("  bob  ") = false
      * </pre>
      *
      * @param cs the CharSequence to check, may be null
@@ -215,9 +226,9 @@ public class StringUtil extends StringUtils {
     }
 
     /**
-     * isBlank(...)==true  return false
-     * * isNullStr("NULL") return true
-     * * isNullStr("null") return true
+     * StringUtil.isBlank(...)==true  return false
+     * * StringUtil.isNullStr("NULL") return true
+     * * StringUtil.isNullStr("null") return true
      *
      * @param cs
      * @return
@@ -247,8 +258,8 @@ public class StringUtil extends StringUtils {
     }
 
     /**
-     * * isNotNullStr("NULL")    = false
-     * * isNotNullStr("null")    = false
+     * * StringUtil.isNotNullStr("NULL")    = false
+     * * StringUtil.isNotNullStr("null")    = false
      *
      * @param cs
      * @return
@@ -263,11 +274,11 @@ public class StringUtil extends StringUtils {
      * <p>Whitespace is defined by {@link Character#isWhitespace(char)}.</p>
      * <p>
      * <pre>
-     * isNotBlank(null)      = false
-     * isNotBlank("")        = false
-     * isNotBlank(" ")       = false
-     * isNotBlank("bob")     = true
-     * isNotBlank("  bob  ") = true
+     * StringUtil.isNotBlank(null)      = false
+     * StringUtil.isNotBlank("")        = false
+     * StringUtil.isNotBlank(" ")       = false
+     * StringUtil.isNotBlank("bob")     = true
+     * StringUtil.isNotBlank("  bob  ") = true
      * </pre>
      *
      * @param cs the CharSequence to check, may be null
@@ -287,14 +298,14 @@ public class StringUtil extends StringUtils {
      * <p>An empty ("") String will be returned if no digits found in {@code str}.</p>
      * <p>
      * <pre>
-     * StringPool.getFirstDigits(null)  = null
-     * StringPool.getFirstDigits("")    = ""
-     * StringPool.getFirstDigits("abc") = ""
-     * StringPool.getFirstDigits("1000$") = "1000"
-     * StringPool.getFirstDigits("1123~45") = "123"
-     * StringPool.getFirstDigits("0.125mm") = "0.125"
-     * StringPool.getFirstDigits("(541) 754-3010") = "541"
-     * StringPool.getFirstDigits("\u0967\u0968\u0969") = "\u0967\u0968\u0969"
+     * StringUtil.getFirstDigits(null)  = null
+     * StringUtil.getFirstDigits("")    = ""
+     * StringUtil.getFirstDigits("abc") = ""
+     * StringUtil.getFirstDigits("1000$") = "1000"
+     * StringUtil.getFirstDigits("1123~45") = "123"
+     * StringUtil.getFirstDigits("0.125mm") = "0.125"
+     * StringUtil.getFirstDigits("(541) 754-3010") = "541"
+     * StringUtil.getFirstDigits("\u0967\u0968\u0969") = "\u0967\u0968\u0969"
      * </pre>
      *
      * @param str the String to extract digits from, may be null
@@ -303,28 +314,26 @@ public class StringUtil extends StringUtils {
      * or {@code null} String if {@code str} is null
      * @since 3.6
      */
-    public static String getFirstDigit(String str) {
+    public static String getFirstDigit(final String str) {
         if (isBlank(str)) {
             return str;
         }
-        if (!isNumeric(str)) {
+        if (str.contains("\\u")) {
             return "";
         }
-        int sz = str.length();
-        StringBuilder strDigits = new StringBuilder(sz);
+        final int sz = str.length();
+        final StringBuilder strDigits = new StringBuilder(sz);
         boolean flag = false;
         for (int i = 0; i < sz; i++) {
-            char tempChar = str.charAt(i);
+            final char tempChar = str.charAt(i);
             if (Character.isDigit(tempChar)) {
                 flag = true;
                 strDigits.append(tempChar);
-            }
-            else {
+            } else {
                 if (flag) {
                     if ('.' == tempChar) {
                         strDigits.append(tempChar);
-                    }
-                    else {
+                    } else {
                         break;
                     }
                 }
@@ -352,7 +361,7 @@ public class StringUtil extends StringUtils {
      * @return {@code true} if the CharSequence is empty or null
      * @since 3.0 Changed signature from isEmpty(String) to isEmpty(CharSequence)
      */
-    public static boolean isEmpty(CharSequence cs) {
+    public static boolean isEmpty(final CharSequence cs) {
         return cs == null || cs.length() == 0;
     }
 
@@ -401,7 +410,7 @@ public class StringUtil extends StringUtils {
      * StringUtils.getCommonPrefix(new String[] {"i am a machine", "i am a robot"}) = "i am a "
      * </pre>
      *
-     * @param strs  array of String objects, entries may be null
+     * @param strs array of String objects, entries may be null
      * @return the initial sequence of characters that are common to all Strings
      * in the array; empty String if the array is null, the elements are all null
      * or if there is no common prefix.
@@ -418,12 +427,10 @@ public class StringUtil extends StringUtils {
                 return StringPool.EMPTY;
             }
             return strs[0];
-        }
-        else if (smallestIndexOfDiff == 0) {
+        } else if (smallestIndexOfDiff == 0) {
             // there were no common initial characters
             return StringPool.EMPTY;
-        }
-        else {
+        } else {
             // we found a common initial character sequence
             return strs[0].substring(0, smallestIndexOfDiff);
         }
@@ -447,8 +454,8 @@ public class StringUtil extends StringUtils {
      * StringUtils.indexOfDifference("abcde", "xyz") = 0
      * </pre>
      *
-     * @param cs1  the first CharSequence, may be null
-     * @param cs2  the second CharSequence, may be null
+     * @param cs1 the first CharSequence, may be null
+     * @param cs2 the second CharSequence, may be null
      * @return the index where cs1 and cs2 begin to differ; -1 if they are equal
      * @since 2.0
      * @since 3.0 Changed signature from indexOfDifference(String, String) to
@@ -500,7 +507,7 @@ public class StringUtil extends StringUtils {
      * StringUtils.indexOfDifference(new String[] {"i am a machine", "i am a robot"}) = 7
      * </pre>
      *
-     * @param css  array of CharSequences, entries may be null
+     * @param css array of CharSequences, entries may be null
      * @return the index where the strings begin to differ; -1 if they are all equal
      * @since 2.4
      * @since 3.0 Changed signature from indexOfDifference(String...) to indexOfDifference(CharSequence...)
@@ -522,8 +529,7 @@ public class StringUtil extends StringUtils {
             if (cs == null) {
                 anyStringNull = true;
                 shortestStrLen = 0;
-            }
-            else {
+            } else {
                 allStringsNull = false;
                 shortestStrLen = Math.min(cs.length(), shortestStrLen);
                 longestStrLen = Math.max(cs.length(), longestStrLen);
@@ -571,11 +577,48 @@ public class StringUtil extends StringUtils {
      * @return
      */
     public static char upperCaseChar(char c) {
-        if ('a' <= c && c <= 'z') {
+        if (97 <= c && c <= 122) {
             //等同于c-=32 更快
             c ^= 32;
         }
         return c;
+    }
+
+    /**
+     * 替换字符串并让它的下一个字母为大写
+     *
+     * @param srcStr
+     * @param org
+     * @param ob
+     * @return
+     */
+    @Deprecated
+    public static String replaceUnderlineAndfirstToUpper(String srcStr, String org, String ob) {
+        StringBuilder newString = new StringBuilder();
+        int first = 0;
+        while (srcStr.indexOf(org) != -1) {
+            first = srcStr.indexOf(org);
+            if (first != srcStr.length()) {
+                newString.append(srcStr.substring(0, first))
+                         .append(ob);
+                srcStr = srcStr.substring(first + org.length());
+                srcStr = capitalize(srcStr);
+            }
+        }
+        newString.append(srcStr);
+        return newString.toString();
+    }
+
+    /**
+     * 首字母大写
+     *
+     * @param srcStr
+     * @return
+     * @see StringUtil#initialToUpper(String) (String)
+     */
+    @Deprecated
+    public static String firstCharacterToUpper(String srcStr) {
+        return initialToUpper(srcStr);
     }
 
     /**
@@ -608,6 +651,27 @@ public class StringUtil extends StringUtils {
         return String.valueOf(cs);
     }
 
+    public static HashMap getURLParams(String urlStr) {
+        HashMap params = new HashMap();
+        if (urlStr == null || "".equalsIgnoreCase(urlStr)) {
+            return params;
+        }
+        int paramStartIndex = urlStr.indexOf("?");
+        int i;
+        String param;
+        String paramName;
+        String paramValue;
+        String paramStr = urlStr.substring(paramStartIndex + 1);
+        StringTokenizer st = new StringTokenizer(paramStr, "&", false);
+        while (st.hasMoreTokens()) {
+            param = st.nextToken();
+            i = param.indexOf("=");
+            paramName = param.substring(0, i);
+            paramValue = param.substring(i + 1);
+            params.put(paramName, paramValue);
+        }
+        return params;
+    }
 
     /**
      * @param sourceText
@@ -617,8 +681,7 @@ public class StringUtil extends StringUtils {
     public static boolean startsWith(String sourceText, String prefix) {
         if (isBlank(sourceText)) {
             return false;
-        }
-        else {
+        } else {
             return sourceText.startsWith(prefix);
         }
     }
@@ -631,8 +694,7 @@ public class StringUtil extends StringUtils {
     public static boolean endsWith(String sourceText, String suffix) {
         if (isBlank(sourceText)) {
             return false;
-        }
-        else {
+        } else {
             return sourceText.endsWith(suffix);
         }
     }
@@ -643,17 +705,14 @@ public class StringUtil extends StringUtils {
         if (nullToZero) {
             if ("".equalsIgnoreCase(num) || num == null) {
                 res = 0L;
-            }
-            else {
+            } else {
                 lnum = Long.parseLong(num);
                 res = lnum;
             }
-        }
-        else {
+        } else {
             if ("".equalsIgnoreCase(num) || num == null) {
                 res = null;
-            }
-            else {
+            } else {
                 lnum = Long.parseLong(num);
                 res = lnum;
             }
@@ -663,13 +722,13 @@ public class StringUtil extends StringUtils {
 
     /**
      * <pre>
-     * StringPool.substringAfterFirst(null,"_") = null
-     * StringPool.substringAfterFirst("","_")   = ""
-     * StringPool.substringAfterFirst(abc,null) = abc
-     * StringPool.substringAfterFirst(abc,"_")  = abc
-     * StringPool.substringAfterFirst(ab_c,"_") = c
-     * StringPool.substringAfterFirst(_ab_c,"_") = ab_c
-     * StringPool.substringAfterFirst(abc_,"_") = ""
+     * StringUtil.substringAfterFirst(null,"_") = null
+     * StringUtil.substringAfterFirst("","_")   = ""
+     * StringUtil.substringAfterFirst(abc,null) = abc
+     * StringUtil.substringAfterFirst(abc,"_")  = abc
+     * StringUtil.substringAfterFirst(ab_c,"_") = c
+     * StringUtil.substringAfterFirst(_ab_c,"_") = ab_c
+     * StringUtil.substringAfterFirst(abc_,"_") = ""
      * </pre>
      */
     public static String substringAfterFirst(String str, String separator) {
@@ -719,4 +778,21 @@ public class StringUtil extends StringUtils {
         return a.equalsIgnoreCase(b);
     }
 
+
+    /**
+     * 字符串生成 格式化 支持{} 和 {0},{1} 但括号内数字无任何意义 仅作为兼容性措施
+     *
+     * @param template
+     * @param arguments 参数严格有序
+     * @return
+     */
+    public static String format(CharSequence template, Object... arguments) {
+        if (null == template) {
+            return null;
+        }
+        if (ObjectUtil.isEmpty(arguments) || isBlank(template)) {
+            return template.toString();
+        }
+        return StringFormat.format(template.toString(), arguments);
+    }
 }

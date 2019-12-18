@@ -1,8 +1,16 @@
-package com.kitsrc.watt.util;
+package com.kitsrc.watt.core;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.*;
+import java.time.DayOfWeek;
+import java.time.Duration;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.Period;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAdjusters;
 import java.time.temporal.TemporalField;
@@ -10,7 +18,6 @@ import java.time.temporal.WeekFields;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -21,7 +28,7 @@ import org.apache.commons.lang3.StringUtils;
  * Description:
  */
 
-public class LocalDateUtil {
+public class DateUtil {
 
     public static String DEFAULT_PATTERN = "yyyy-MM-dd HH:mm:ss";
     public static String DEFAULT_DAY = "dd";
@@ -671,7 +678,7 @@ public class LocalDateUtil {
      * @param dateBegin 开始日期
      * @param dateEnd   结束日期
      * @return 天数<br>
-     * @see LocalDateUtil#getDifferDays(Date, Date)
+     * @see DateUtil#getDifferDays(Date, Date)
      */
     @Deprecated
     public static int getDifferOfDay(Date dateBegin, Date dateEnd) {
@@ -734,7 +741,7 @@ public class LocalDateUtil {
      * @return int
      * @Title: getDifferOfMonth
      * @Description:
-     * @see LocalDateUtil#getDifferMonths(Date, Date)
+     * @see DateUtil#getDifferMonths(Date, Date)
      */
     @Deprecated
     public static int getDifferOfMonth(Date date1, Date date2) {
@@ -766,7 +773,7 @@ public class LocalDateUtil {
      * @return int
      * @Title: getDifferOfYear
      * @Description:
-     * @see LocalDateUtil#getDifferYears(Date, Date)
+     * @see DateUtil#getDifferYears(Date, Date)
      */
     @Deprecated
     public static int getDifferOfYear(Date date1, Date date2) {
@@ -805,7 +812,7 @@ public class LocalDateUtil {
      * @param date 给定日期
      * @return
      * @throws
-     * @see LocalDateUtil#getFirstDayOfMonth(Date)
+     * @see DateUtil#getFirstDayOfMonth(Date)
      */
     @Deprecated
     public static Date getFirstDateOfMonth(Date date) {
@@ -821,7 +828,7 @@ public class LocalDateUtil {
      * @param date
      * @return
      * @throws
-     * @see LocalDateUtil#getFirstDayOfMonth(String)
+     * @see DateUtil#getFirstDayOfMonth(String)
      */
     @Deprecated
     public static String getFirstDateOfMonth(String date) {
@@ -839,7 +846,7 @@ public class LocalDateUtil {
      *
      * @param datestr
      * @return
-     * @see LocalDateUtil#getFirstDayOfWeek(String)
+     * @see DateUtil#getFirstDayOfWeek(String)
      */
     @Deprecated
     public static String getFirstDateOfWeek(String datestr) {
@@ -934,7 +941,7 @@ public class LocalDateUtil {
      * @param date
      * @return
      * @throws ParseException
-     * @see LocalDateUtil#getLastDayOfMonth(Date)
+     * @see DateUtil#getLastDayOfMonth(Date)
      */
     @Deprecated
     public static Date getLastDateOfMonth(Date date) throws ParseException {
@@ -950,7 +957,7 @@ public class LocalDateUtil {
      * @param date 给定的字符串日期
      * @return
      * @throws ParseException
-     * @see LocalDateUtil#getLastDayOfMonth(String)
+     * @see DateUtil#getLastDayOfMonth(String)
      */
     @Deprecated
     public static String getLastDateOfMonth(String date) {

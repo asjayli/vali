@@ -9,7 +9,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-
 import javax.validation.constraints.NotNull;
 
 import net.sf.cglib.core.Predicate;
@@ -17,7 +16,6 @@ import net.sf.cglib.core.Transformer;
 
 /**
  * 集合操作工具类
- * @author Li Jie
  */
 public class CollectionUtil {
 
@@ -29,11 +27,11 @@ public class CollectionUtil {
     private static final Integer INTEGER_ONE = 1;
 
     public static boolean isNotEmpty(Collection<?> collection) {
-        return !CollectionUtil.isEmpty(collection);
+        return !isEmpty(collection);
     }
 
     public static boolean isNotEmpty(Map<?, ?> map) {
-        return !CollectionUtil.isEmpty(map);
+        return !isEmpty(map);
     }
 
     /**
@@ -65,7 +63,7 @@ public class CollectionUtil {
      * @return the boolean
      */
     public static boolean isEmpty(Object[] array) {
-        return !CollectionUtil.isNotEmpty(array);
+        return !isNotEmpty(array);
     }
 
     /**
@@ -106,7 +104,7 @@ public class CollectionUtil {
      * @return String
      */
     public static String encodeMap(Map<String, String> map) {
-        return CollectionUtil.encodeMap(map, CollectionUtil.KV_SPLIT, CollectionUtil.PAIR_SPLIT);
+        return encodeMap(map, KV_SPLIT, PAIR_SPLIT);
     }
 
     /**
@@ -141,7 +139,7 @@ public class CollectionUtil {
      * @return map
      */
     public static Map<String, String> decodeMap(String data) {
-        return CollectionUtil.decodeMap(data, CollectionUtil.KV_SPLIT, CollectionUtil.PAIR_SPLIT);
+        return decodeMap(data, KV_SPLIT, PAIR_SPLIT);
     }
 
     /**
@@ -188,8 +186,8 @@ public class CollectionUtil {
      * @return a new collection with the results
      * @see Collection#removeAll
      */
-    public static <T> Collection<T> subtract(@NotNull Collection<T> minuendCollection,
-            @NotNull Collection<T> subtrahendCollection) {
+    public static <T> Collection<T> subtract(@NotNull final Collection<T> minuendCollection,
+            @NotNull final Collection<T> subtrahendCollection) {
         ArrayList<T> minuendList = new ArrayList<>(minuendCollection);
         Iterator<T> subtrahendIterator = subtrahendCollection.iterator();
         synchronized (minuendList) {
@@ -210,14 +208,14 @@ public class CollectionUtil {
      * @param coll the collection to get the cardinality map for, must not be null
      * @return the populated cardinality map  key: 原集合对象  value ： 重复计数
      */
-    public static Map<Object, Integer> getCardinalityMap(Collection coll) {
+    public static Map<Object, Integer> getCardinalityMap(final Collection coll) {
         Map<Object, Integer> count = new HashMap<>(coll.size());
         Iterator iterator = coll.iterator();
         while (iterator.hasNext()) {
             Object next = iterator.next();
             Integer c = count.get(next);
             if (c == null) {
-                count.put(next, CollectionUtil.INTEGER_ONE);
+                count.put(next, INTEGER_ONE);
             }
             else {
                 count.put(next, c + 1);
@@ -237,14 +235,14 @@ public class CollectionUtil {
      * @param b the second collection, must not be null
      * @return <code>true</code> iff the collections contain the same elements with the same cardinalities.
      */
-    public static boolean isEqualCollection(Collection a, Collection b) {
+    public static boolean isEqualCollection(final Collection a, final Collection b) {
         //比较 集合容量
         if (a.size() != b.size()) {
             return false;
         }
         else {
-            Map<Object, Integer> mapa = CollectionUtil.getCardinalityMap(a);
-            Map<Object, Integer> mapb = CollectionUtil.getCardinalityMap(b);
+            Map<Object, Integer> mapa = getCardinalityMap(a);
+            Map<Object, Integer> mapb = getCardinalityMap(b);
             // 比较集合元素 基数
             if (mapa.size() != mapb.size()) {
                 return false;
@@ -255,7 +253,7 @@ public class CollectionUtil {
                 while (it.hasNext()) {
                     Object obj = it.next();
                     // 比较集合中 各元素的 对应重复计数
-                    if (CollectionUtil.getFreq(obj, mapa) != CollectionUtil.getFreq(obj, mapb)) {
+                    if (getFreq(obj, mapa) != getFreq(obj, mapb)) {
                         return false;
                     }
                 }
@@ -271,7 +269,7 @@ public class CollectionUtil {
      * @param freqMap
      * @return
      */
-    private static int getFreq(Object key, Map<Object, Integer> freqMap) {
+    private static int getFreq(final Object key, final Map<Object, Integer> freqMap) {
         Integer count = freqMap.get(key);
         if (count != null) {
             return count.intValue();

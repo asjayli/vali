@@ -1,11 +1,11 @@
 package com.kitsrc.watt.bo;
 
+import com.kitsrc.watt.api.ResultStatus;
+import com.kitsrc.watt.constant.ResponseStatus;
 import java.io.Serializable;
 
 import javax.validation.constraints.NotNull;
 
-import com.vandream.hamster.core.api.ResultStatus;
-import com.vandream.hamster.core.constant.ResponseStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

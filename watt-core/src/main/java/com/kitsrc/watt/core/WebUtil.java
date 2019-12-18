@@ -1,12 +1,11 @@
-package com.kitsrc.watt.util;
+package com.kitsrc.watt.core;
 
+import com.kitsrc.watt.core.json.JSONUtil;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
 import java.util.Set;
-
 import javax.servlet.http.HttpServletRequest;
-
 import org.apache.commons.lang3.StringUtils;
 
 /**
