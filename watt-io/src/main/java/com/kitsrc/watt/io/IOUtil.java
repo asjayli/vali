@@ -16,6 +16,8 @@
 package com.kitsrc.watt.io;
 
 
+import com.kitsrc.watt.constant.Constants;
+import com.kitsrc.watt.constant.StringPool;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -34,8 +36,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.GZIPInputStream;
 
-import com.vandream.cloud.core.constant.Constants;
-import com.vandream.cloud.core.util.StringUtil;
+//import com.vandream.cloud.core.constant.Constants;
+//import com.vandream.cloud.core.util.StringUtil;
 import lombok.Cleanup;
 import lombok.extern.slf4j.Slf4j;
 
@@ -50,11 +52,10 @@ public class IOUtil {
 
         try {
             return (null == encoding) ? toString(new InputStreamReader(input, Constants.DEFAULT_CHARSET_NAME))
-                    : toString(new InputStreamReader(input, encoding));
-        }
-        catch (Exception e) {
+                                      : toString(new InputStreamReader(input, encoding));
+        } catch (Exception e) {
             log.error("NA", "read input failed.", e);
-            return StringUtil.EMPTY;
+            return StringPool.EMPTY;
         }
     }
 
@@ -95,8 +96,7 @@ public class IOUtil {
             line = reader.readLine();
             if (null != line) {
                 list.add(line);
-            }
-            else {
+            } else {
                 break;
             }
         }
@@ -115,7 +115,7 @@ public class IOUtil {
         }
         File tf = new File(target);
         if (!tf.getParentFile()
-                .mkdirs()) {
+               .mkdirs()) {
             throw new RuntimeException("failed to create parent directory.");
         }
         if (!tf.exists() && !tf.createNewFile()) {
@@ -128,8 +128,7 @@ public class IOUtil {
             tc = new FileOutputStream(tf).getChannel();
             sc = new FileInputStream(sf).getChannel();
             sc.transferTo(0, sc.size(), tc);
-        }
-        finally {
+        } finally {
             if (null != sc) {
                 sc.close();
             }
@@ -173,8 +172,7 @@ public class IOUtil {
         for (File file : files) {
             try {
                 delete(file);
-            }
-            catch (IOException ioe) {
+            } catch (IOException ioe) {
                 exception = ioe;
             }
         }
@@ -206,8 +204,7 @@ public class IOUtil {
             out = new ByteArrayOutputStream();
             IOUtil.copy(gis, out);
             return out.toByteArray();
-        }
-        finally {
+        } finally {
             if (out != null) {
                 out.close();
             }
