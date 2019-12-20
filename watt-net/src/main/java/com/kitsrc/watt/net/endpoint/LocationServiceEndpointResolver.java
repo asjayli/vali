@@ -37,6 +37,10 @@ public class LocationServiceEndpointResolver extends EndpointResolverBase {
         locationServiceEndpoint = endpoint;
     }
 
+    public  String getLocationServiceEndpoint() {
+        return locationServiceEndpoint;
+    }
+
     @Override
     public String resolve(ResolveEndpointRequest request) throws ClientException {
         if (request.locationServiceCode == null || request.locationServiceCode.length() == 0) {

@@ -11,7 +11,7 @@ import static com.kitsrc.watt.net.utils.LogUtils.DEFAULT_LOG_FORMAT;
 
 
 @SuppressWarnings("deprecation")
-public class DefaultProfile implements IClientProfile {
+public class DefaultProfile implements IClientProfile{
     private static DefaultProfile profile = null;
     private String regionId = null;
     private FormatType acceptFormat = null;
@@ -111,11 +111,6 @@ public class DefaultProfile implements IClientProfile {
         return credential;
     }
 
-    @Override
-    @Deprecated
-    public ISigner getSigner() {
-        return null;
-    }
 
     @Override
     public void setCredentialsProvider(CredentialsProvider credentialsProvider) {
@@ -125,15 +120,7 @@ public class DefaultProfile implements IClientProfile {
         credential = new CredentialsBackupCompatibilityAdaptor(credentialsProvider);
     }
 
-    @Override
-    public String getCertPath() {
-        return certPath;
-    }
 
-    @Override
-    public void setCertPath(String certPath) {
-        this.certPath = certPath;
-    }
 
     @Override
     public HttpClientConfig getHttpClientConfig() {
@@ -165,14 +152,6 @@ public class DefaultProfile implements IClientProfile {
         this.usingVpcEndpoint = true;
     }
 
-    /**
-     * @deprecated : use enableUsingInternalLocationService instead of this.
-     */
-    @Override
-    @Deprecated
-    public void setUsingInternalLocationService() {
-        enableUsingInternalLocationService();
-    }
 
     @Override
     public Logger getLogger() {

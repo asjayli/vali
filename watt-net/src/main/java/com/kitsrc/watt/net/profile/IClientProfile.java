@@ -11,20 +11,16 @@ import org.slf4j.Logger;
 @SuppressWarnings("deprecation")
 public interface IClientProfile {
 
-    /**
-     * @Deprecated : Use Signer.getSigner(AlibabaCloudCredentials credentials) instead of this
-     */
-    @Deprecated
-    ISigner getSigner();
+
 
            String getRegionId();
 
            FormatType getFormat();
 
     /**
-     * @Deprecated : Use AlibabaCloudCredentialsProvider getCredentials() instead of this
+     * Deprecated : Use CredentialsProvider getCredentials() instead of this
      */
-    @Deprecated
+    /*@Deprecated*/
     Credential getCredential();
 
     /**
@@ -34,19 +30,9 @@ public interface IClientProfile {
      */
         void setCredentialsProvider(CredentialsProvider credentialsProvider);
 
-    /**
-     * use HttpClientConfig.getCertPath instead
-     */
-    @Deprecated
-         String getCertPath();
 
-    /**
-     * use HttpClientConfig.setCertPath instead
-     *
-     * @param certPath
-     */
-    @Deprecated
-          void setCertPath(String certPath);
+
+
 
     /**
      * http client configs
@@ -63,11 +49,7 @@ public interface IClientProfile {
 
           void enableUsingVpcEndpoint();
 
-    /**
-     * @Deprecated : Use enableUsingInternalLocationService instead of this
-     */
-    @Deprecated
-          void setUsingInternalLocationService();
+
 
           Logger getLogger();
 

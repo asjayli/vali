@@ -30,7 +30,6 @@ import java.util.regex.Pattern;
 import javax.xml.bind.annotation.XmlRootElement;
 import org.slf4j.Logger;
 
-@SuppressWarnings("deprecation")
 public class DefaultAcsClient implements IAcsClient {
 
     /*
@@ -47,14 +46,7 @@ public class DefaultAcsClient implements IAcsClient {
     private static final String SIGNATURE_BEGIN = "string to sign is:";
     private final UserAgentConfig userAgentConfig = new UserAgentConfig();
 
-    /**
-     * @Deprecated : Use DefaultAcsClient(String regionId) instead of this
-     */
-    @Deprecated
-    public DefaultAcsClient() throws ClientException {
-        this.clientProfile = DefaultProfile.getProfile();
-        this.httpClient = HttpClientFactory.buildClient(this.clientProfile);
-    }
+
 
     public DefaultAcsClient(String regionId) throws ClientException {
         this.clientProfile = DefaultProfile.getProfile(regionId);
@@ -221,16 +213,7 @@ public class DefaultAcsClient implements IAcsClient {
         }
     }
 
-    /**
-     * @Deprecated : Use other overload methods
-     */
-    @Deprecated
-    public <T extends AcsResponse> HttpResponse doAction(AcsRequest<T> request, boolean autoRetry, int maxRetryNumber,
-            String regionId, Credential credential, Signer signer, FormatType format)
-            throws ClientException, ServerException {
-        return doAction(request, autoRetry, maxRetryNumber, regionId, new LegacyCredentials(credential), signer,
-                format);
-    }
+
 
     public ProductDomain getDomain(AcsRequest request, String regionId)
             throws ClientException {
@@ -409,25 +392,11 @@ public class DefaultAcsClient implements IAcsClient {
         }
     }
 
-    @Deprecated
-    public boolean isAutoRetry() {
-        return autoRetry;
-    }
 
-    @Deprecated
-    public void setAutoRetry(boolean autoRetry) {
-        this.autoRetry = autoRetry;
-    }
 
-    @Deprecated
-    public int getMaxRetryNumber() {
-        return maxRetryNumber;
-    }
 
-    @Deprecated
-    public void setMaxRetryNumber(int maxRetryNumber) {
-        this.maxRetryNumber = maxRetryNumber;
-    }
+
+
 
     @Override
     public void restoreSSLCertificate() {

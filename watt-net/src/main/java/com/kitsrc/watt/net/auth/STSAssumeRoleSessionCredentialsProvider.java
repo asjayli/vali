@@ -10,7 +10,7 @@ import com.kitsrc.watt.net.profile.DefaultProfile;
 import com.kitsrc.watt.net.profile.IClientProfile;
 
 /**
- * This implementation of AlibabaCloudCredentialsProvider accesses Alibaba Cloud STS service to assume a Role and get
+ * This implementation of CredentialsProvider accesses Alibaba Cloud STS service to assume a Role and get
  * back a temporary session for authentication.
  */
 public class STSAssumeRoleSessionCredentialsProvider implements CredentialsProvider {
