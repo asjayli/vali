@@ -1,13 +1,14 @@
 package com.kitsrc.watt.net.profile;
 
-import com.aliyuncs.auth.*;
-import com.aliyuncs.endpoint.DefaultEndpointResolver;
-import com.aliyuncs.exceptions.ClientException;
-import com.aliyuncs.http.FormatType;
-import com.aliyuncs.http.HttpClientConfig;
+import com.kitsrc.watt.net.auth.*;
+import com.kitsrc.watt.net.endpoint.DefaultEndpointResolver;
+import com.kitsrc.watt.net.exceptions.ClientException;
+import com.kitsrc.watt.net.http.FormatType;
+import com.kitsrc.watt.net.http.HttpClientConfig;
 import org.slf4j.Logger;
 
-import static com.aliyuncs.utils.LogUtils.DEFAULT_LOG_FORMAT;
+import static com.kitsrc.watt.net.utils.LogUtils.DEFAULT_LOG_FORMAT;
+
 
 @SuppressWarnings("deprecation")
 public class DefaultProfile implements IClientProfile {

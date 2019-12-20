@@ -1,18 +1,21 @@
 package com.kitsrc.watt.net.profile;
 
 
-import com.kitsrc.watt.net.httpx.FormatType;
-import com.kitsrc.watt.net.httpx.HttpClientConfig;
+import com.kitsrc.watt.net.auth.AlibabaCloudCredentialsProvider;
+import com.kitsrc.watt.net.auth.Credential;
+import com.kitsrc.watt.net.auth.ISigner;
+import com.kitsrc.watt.net.http.FormatType;
+import com.kitsrc.watt.net.http.HttpClientConfig;
 import org.slf4j.Logger;
 
 @SuppressWarnings("deprecation")
 public interface IClientProfile {
 
-    ///**
-    // * @Deprecated : Use Signer.getSigner(AlibabaCloudCredentials credentials) instead of this
-    // */
-    //@Deprecated
-    //       ISigner getSigner();
+    /**
+     * @Deprecated : Use Signer.getSigner(AlibabaCloudCredentials credentials) instead of this
+     */
+    @Deprecated
+    ISigner getSigner();
 
            String getRegionId();
 
@@ -22,7 +25,7 @@ public interface IClientProfile {
      * @Deprecated : Use AlibabaCloudCredentialsProvider getCredentials() instead of this
      */
     @Deprecated
-            Credential getCredential();
+    Credential getCredential();
 
     /**
      * This method exists because ClientProfile holds too much modules like endpoint management

@@ -1,13 +1,13 @@
 package com.kitsrc.watt.net.auth;
 
-import com.aliyuncs.DefaultAcsClient;
-import com.aliyuncs.IAcsClient;
-import com.aliyuncs.auth.sts.AssumeRoleRequest;
-import com.aliyuncs.auth.sts.AssumeRoleResponse;
-import com.aliyuncs.exceptions.ClientException;
-import com.aliyuncs.exceptions.ServerException;
-import com.aliyuncs.profile.DefaultProfile;
-import com.aliyuncs.profile.IClientProfile;
+import com.kitsrc.watt.net.DefaultAcsClient;
+import com.kitsrc.watt.net.IAcsClient;
+import com.kitsrc.watt.net.auth.sts.AssumeRoleRequest;
+import com.kitsrc.watt.net.auth.sts.AssumeRoleResponse;
+import com.kitsrc.watt.net.exceptions.ClientException;
+import com.kitsrc.watt.net.exceptions.ServerException;
+import com.kitsrc.watt.net.profile.DefaultProfile;
+import com.kitsrc.watt.net.profile.IClientProfile;
 
 /**
  * This implementation of AlibabaCloudCredentialsProvider accesses Alibaba Cloud STS service to assume a Role and get

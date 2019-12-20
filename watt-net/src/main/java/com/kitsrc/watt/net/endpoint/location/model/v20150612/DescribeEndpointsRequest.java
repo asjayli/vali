@@ -1,6 +1,6 @@
 package com.kitsrc.watt.net.endpoint.location.model.v20150612;
 
-import com.aliyuncs.RpcAcsRequest;
+import com.kitsrc.watt.net.RpcAcsRequest;
 
 public class DescribeEndpointsRequest extends RpcAcsRequest<DescribeEndpointsResponse> {
 

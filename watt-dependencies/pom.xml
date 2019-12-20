@@ -8,6 +8,7 @@
     <groupId>com.kitsrc.watt</groupId>
     <artifactId>watt-dependencies</artifactId>
     <version>0.0.1</version>
+    <packaging>pom</packaging>
     <properties>
         <reversion>0.0.1-SNAPSHOT</reversion>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

@@ -20,7 +20,6 @@
         <module name="watt-spring" />
         <module name="watt-turing" />
         <module name="jdk-feature-tracking" />
-        <module name="watt-dependencies" />
         <module name="watt-io" />
       </profile>
     </annotationProcessing>
