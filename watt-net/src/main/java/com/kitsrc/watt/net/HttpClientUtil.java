@@ -6,12 +6,12 @@ package com.kitsrc.watt.net;
 
 
 
-import com.kitsrc.watt.net.http.builder.HCB;
-import com.kitsrc.watt.net.http.common.HttpConfig;
-import com.kitsrc.watt.net.http.common.HttpMethods;
-import com.kitsrc.watt.net.http.common.HttpResult;
-import com.kitsrc.watt.net.http.common.Utils;
-import com.kitsrc.watt.net.http.exception.HttpProcessException;
+import com.kitsrc.watt.net.httpss.builder.HCB;
+import com.kitsrc.watt.net.httpss.common.HttpConfig;
+import com.kitsrc.watt.net.httpss.common.HttpMethods;
+import com.kitsrc.watt.net.httpss.common.HttpResult;
+import com.kitsrc.watt.net.httpss.common.Utils;
+import com.kitsrc.watt.net.httpss.exception.HttpProcessException;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;

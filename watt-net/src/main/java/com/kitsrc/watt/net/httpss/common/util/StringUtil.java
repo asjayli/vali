@@ -1,4 +1,4 @@
-package com.kitsrc.watt.net.http.common.util;
+package com.kitsrc.watt.net.httpss.common.util;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,10 +1,10 @@
-package com.kitsrc.watt.net.http.builder;
+package com.kitsrc.watt.net.httpss.builder;
 
 
 
 
-import com.kitsrc.watt.net.http.common.SSLs;
-import com.kitsrc.watt.net.http.exception.HttpProcessException;
+import com.kitsrc.watt.net.httpss.common.SSLs;
+import com.kitsrc.watt.net.httpss.exception.HttpProcessException;
 import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.net.UnknownHostException;

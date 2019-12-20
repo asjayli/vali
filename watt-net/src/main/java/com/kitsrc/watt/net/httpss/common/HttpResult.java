@@ -1,4 +1,4 @@
-package com.kitsrc.watt.net.http.common;
+package com.kitsrc.watt.net.httpss.common;
 
 import java.io.Serializable;
 import org.apache.http.Header;

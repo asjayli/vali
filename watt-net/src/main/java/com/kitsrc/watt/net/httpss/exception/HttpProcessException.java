@@ -1,4 +1,4 @@
-package com.kitsrc.watt.net.http.exception;
+package com.kitsrc.watt.net.httpss.exception;
 
 
 /** 

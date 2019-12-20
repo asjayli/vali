@@ -1,4 +1,4 @@
-package com.kitsrc.watt.net.http.common;
+package com.kitsrc.watt.net.httpss.common;
 	
 	/**
 	 * 枚举HttpMethods方法

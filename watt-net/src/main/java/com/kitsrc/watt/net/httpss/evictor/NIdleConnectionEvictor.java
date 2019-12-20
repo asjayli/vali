@@ -1,4 +1,4 @@
-package com.kitsrc.watt.net.http.evictor;
+package com.kitsrc.watt.net.httpss.evictor;
 
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;

@@ -1,4 +1,4 @@
-package com.kitsrc.watt.net.http.common;
+package com.kitsrc.watt.net.httpss.common;
 
 import org.apache.http.client.CookieStore;
 import org.apache.http.client.protocol.HttpClientContext;

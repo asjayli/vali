@@ -1,4 +1,4 @@
-package com.kitsrc.watt.net.http.common;
+package com.kitsrc.watt.net.httpss.common;
 
 import java.util.HashMap;
 import java.util.Map;

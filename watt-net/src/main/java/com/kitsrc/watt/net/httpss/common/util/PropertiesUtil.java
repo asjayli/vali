@@ -1,5 +1,5 @@
 
-package com.kitsrc.watt.net.http.common.util;
+package com.kitsrc.watt.net.httpss.common.util;
 
 import java.io.IOException;
 import java.io.InputStream;

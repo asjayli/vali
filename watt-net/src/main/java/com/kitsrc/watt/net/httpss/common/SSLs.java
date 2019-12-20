@@ -1,7 +1,7 @@
-package com.kitsrc.watt.net.http.common;
+package com.kitsrc.watt.net.httpss.common;
 
 
-import com.kitsrc.watt.net.http.exception.HttpProcessException;
+import com.kitsrc.watt.net.httpss.exception.HttpProcessException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
