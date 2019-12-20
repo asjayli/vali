@@ -1,4 +1,4 @@
-package com.kitsrc.watt.core.guid;
+package com.kitsrc.watt.utils.guid;
 
 import java.util.Random;
 

@@ -5,7 +5,7 @@ import java.io.UnsupportedEncodingException;
 public class Base64Helper {
 
     private static final String BASE64_CODE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-                                              + "abcdefghijklmnopqrstuvwxyz" + "0123456789" + "+/";
+            + "abcdefghijklmnopqrstuvwxyz" + "0123456789" + "+/";
 
     private static final int[] BASE64_DECODE = {
             -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
@@ -24,7 +24,7 @@ public class Base64Helper {
             -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
             -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
             -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-            };
+    };
 
     private static byte[] zeroPad(int length, byte[] bytes) {
         byte[] padded = new byte[length];
@@ -58,7 +58,7 @@ public class Base64Helper {
     }
 
     public synchronized static String encode(String string, String encoding)
-    throws UnsupportedEncodingException {
+            throws UnsupportedEncodingException {
         if (null == string || null == encoding) {
             return null;
         }
@@ -67,13 +67,13 @@ public class Base64Helper {
     }
 
     public synchronized static String decode(String string, String encoding) throws
-                                                                             UnsupportedEncodingException {
+            UnsupportedEncodingException {
         if (null == string || null == encoding) {
             return null;
         }
         int posIndex = 0;
         int decodeLen = string.endsWith("==") ? (string.length() - 2) :
-                        string.endsWith("=") ? (string.length() - 1) : string.length();
+                string.endsWith("=") ? (string.length() - 1) : string.length();
         byte[] buff = new byte[decodeLen * 3 / 4];
         int count4 = decodeLen - decodeLen % 4;
         for (int i = 0; i < count4; i += 4) {

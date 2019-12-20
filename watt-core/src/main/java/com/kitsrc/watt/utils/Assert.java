@@ -13,7 +13,7 @@ import java.util.function.Supplier;
  * @time : 13:30
  * Description:
  */
-public class Assert {
+public abstract class Assert {
     /**
      * Assert a boolean expression, throwing an {@code IllegalStateException}
      * if the expression evaluates to {@code false}.

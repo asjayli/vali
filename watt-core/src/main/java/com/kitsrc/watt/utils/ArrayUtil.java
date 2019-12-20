@@ -12,7 +12,7 @@ import org.apache.commons.lang3.ArrayUtils;
  * @time : 19:20  </p>
  * Description:  </p>
  */
-public class ArrayUtil extends ArrayUtils {
+public abstract class ArrayUtil extends ArrayUtils {
 
     /**
      * 数组合并 synchronized 保证安全性 并且性能相对 较高

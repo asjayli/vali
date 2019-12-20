@@ -17,7 +17,7 @@ import net.sf.cglib.core.Transformer;
 /**
  * 集合操作工具类
  */
-public class CollectionUtil {
+public abstract class CollectionUtil {
 
     public static final String KV_SPLIT = "=";
     public static final String PAIR_SPLIT = "&";

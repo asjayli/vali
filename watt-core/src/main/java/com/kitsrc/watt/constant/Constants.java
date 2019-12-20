@@ -25,7 +25,10 @@ import java.nio.charset.Charset;
  */
 public interface Constants {
 
-
+    /**
+     * default charset name
+     */
+    String ENCODING = "UTF-8";
     /**
      * default charset name
      */

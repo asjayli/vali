@@ -1,9 +1,9 @@
-package com.kitsrc.watt.core.guid.test;
+package com.kitsrc.watt.utils.guid.test;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import com.kitsrc.watt.core.guid.Snowflake;
+import com.kitsrc.watt.utils.guid.Snowflake;
 import org.junit.jupiter.api.Test;
 
 class SnowflakeKitIdTests {
