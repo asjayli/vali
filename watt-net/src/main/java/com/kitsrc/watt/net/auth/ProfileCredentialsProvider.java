@@ -2,7 +2,7 @@ package com.kitsrc.watt.net.auth;
 
 import com.kitsrc.watt.net.exceptions.ClientException;
 import com.kitsrc.watt.net.utils.AuthUtils;
-import com.kitsrc.watt.net.utils.StringUtils;
+import com.kitsrc.watt.utils.StringUtil;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -67,7 +67,7 @@ public class ProfileCredentialsProvider implements AlibabaCloudCredentialsProvid
     private AlibabaCloudCredentials createCredential(Map<String, String> clientConfig,
                                                      CredentialsProviderFactory factory) throws ClientException {
         String configType = clientConfig.get(AuthConstant.INI_TYPE);
-        if (StringUtils.isEmpty(configType)) {
+        if (StringUtil.isEmpty(configType)) {
             throw new ClientException("The configured client type is empty");
         }
         if (AuthConstant.INI_TYPE_ARN.equals(configType)) {
@@ -81,7 +81,7 @@ public class ProfileCredentialsProvider implements AlibabaCloudCredentialsProvid
         }
         String accessKeyId = clientConfig.get(AuthConstant.INI_ACCESS_KEY_ID);
         String accessKeySecret = clientConfig.get(AuthConstant.INI_ACCESS_KEY_IDSECRET);
-        if (StringUtils.isEmpty(accessKeyId) || StringUtils.isEmpty(accessKeySecret)) {
+        if (StringUtil.isEmpty(accessKeyId) || StringUtil.isEmpty(accessKeySecret)) {
             return null;
         }
         return new BasicCredentials(accessKeyId, accessKeySecret);
@@ -96,10 +96,10 @@ public class ProfileCredentialsProvider implements AlibabaCloudCredentialsProvid
         String roleArn = clientConfig.get(AuthConstant.INI_ROLE_ARN);
         String regionId = clientConfig.get(AuthConstant.DEFAULT_REGION);
         String policy = clientConfig.get(AuthConstant.INI_POLICY);
-        if (StringUtils.isEmpty(accessKeyId) || StringUtils.isEmpty(accessKeySecret)) {
+        if (StringUtil.isEmpty(accessKeyId) || StringUtil.isEmpty(accessKeySecret)) {
             throw new ClientException("The configured access_key_id or access_key_secret is empty");
         }
-        if (StringUtils.isEmpty(roleSessionName) || StringUtils.isEmpty(roleArn)) {
+        if (StringUtil.isEmpty(roleSessionName) || StringUtil.isEmpty(roleArn)) {
             throw new ClientException("The configured role_session_name or role_arn is empty");
         }
         STSAssumeRoleSessionCredentialsProvider provider =
@@ -113,11 +113,11 @@ public class ProfileCredentialsProvider implements AlibabaCloudCredentialsProvid
             throws ClientException {
         String publicKeyId = clientConfig.get(AuthConstant.INI_PUBLIC_KEY_ID);
         String privateKeyFile = clientConfig.get(AuthConstant.INI_PRIVATE_KEY_FILE);
-        if (StringUtils.isEmpty(privateKeyFile)) {
+        if (StringUtil.isEmpty(privateKeyFile)) {
             throw new ClientException("The configured private_key_file is empty");
         }
         String privateKey = AuthUtils.getPrivateKey(privateKeyFile);
-        if (StringUtils.isEmpty(publicKeyId) || StringUtils.isEmpty(privateKey)) {
+        if (StringUtil.isEmpty(publicKeyId) || StringUtil.isEmpty(privateKey)) {
             throw new ClientException("The configured public_key_id or private_key_file content is empty");
         }
         STSGetSessionAccessKeyCredentialsProvider provider =
@@ -129,7 +129,7 @@ public class ProfileCredentialsProvider implements AlibabaCloudCredentialsProvid
                                                                   CredentialsProviderFactory factory)
             throws ClientException {
         String roleName = clientConfig.get(AuthConstant.INI_ROLE_NAME);
-        if (StringUtils.isEmpty(roleName)) {
+        if (StringUtil.isEmpty(roleName)) {
             throw new ClientException("The configured role_name is empty");
         }
         InstanceProfileCredentialsProvider provider =

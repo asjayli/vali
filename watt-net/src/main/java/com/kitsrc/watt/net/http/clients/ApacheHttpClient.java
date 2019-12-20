@@ -4,7 +4,7 @@ import com.kitsrc.watt.net.exceptions.ClientException;
 import com.kitsrc.watt.net.http.*;
 import com.kitsrc.watt.net.utils.EnvironmentUtils;
 import com.kitsrc.watt.net.utils.IOUtils;
-import com.kitsrc.watt.net.utils.StringUtils;
+import com.kitsrc.watt.utils.StringUtil;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -215,7 +215,7 @@ public class ApacheHttpClient extends IHttpClient {
             EntityBuilder bodyBuilder = EntityBuilder.create();
 
             String contentType = apiReq.getHeaderValue(CONTENT_TYPE);
-            if (StringUtils.isEmpty(contentType)) {
+            if (StringUtil.isEmpty(contentType)) {
                 contentType = apiReq.getContentTypeValue(apiReq.getHttpContentType(), apiReq.getSysEncoding());
             }
             bodyBuilder.setContentType(ContentType.parse(contentType));

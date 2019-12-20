@@ -1,7 +1,7 @@
 package com.kitsrc.watt.net.http;
 
 import com.kitsrc.watt.net.exceptions.ClientException;
-import com.kitsrc.watt.net.utils.StringUtils;
+import com.kitsrc.watt.utils.StringUtil;
 import java.io.IOException;
 import java.net.*;
 import java.util.Map;
@@ -102,8 +102,8 @@ public class HttpUtil {
     public static Proxy getJDKProxy(String clientProxy, String envProxy, HttpRequest request) throws ClientException {
         Proxy proxy = Proxy.NO_PROXY;
         try {
-            String proxyStr = (!StringUtils.isEmpty(clientProxy) ? clientProxy : envProxy);
-            if (StringUtils.isEmpty(proxyStr)) {
+            String proxyStr = (!StringUtil.isEmpty(clientProxy) ? clientProxy : envProxy);
+            if (StringUtil.isEmpty(proxyStr)) {
                 return proxy;
             }
             URL proxyUrl = new URL(proxyStr);
@@ -131,8 +131,8 @@ public class HttpUtil {
     public static HttpHost getApacheProxy(String clientProxy, String envProxy, HttpRequest request)
             throws ClientException {
         try {
-            String proxyStr = (!StringUtils.isEmpty(clientProxy) ? clientProxy : envProxy);
-            if (StringUtils.isEmpty(proxyStr)) {
+            String proxyStr = (!StringUtil.isEmpty(clientProxy) ? clientProxy : envProxy);
+            if (StringUtil.isEmpty(proxyStr)) {
                 return null;
             }
             URL proxyUrl = new URL(proxyStr);
@@ -150,8 +150,8 @@ public class HttpUtil {
     }
 
     public static boolean needProxy(String targetHost, String clientNoProxyList, String envNoProxyList) {
-        String noProxyList = (!StringUtils.isEmpty(clientNoProxyList) ? clientNoProxyList : envNoProxyList);
-        if (StringUtils.isEmpty(noProxyList)) {
+        String noProxyList = (!StringUtil.isEmpty(clientNoProxyList) ? clientNoProxyList : envNoProxyList);
+        if (StringUtil.isEmpty(noProxyList)) {
             return true;
         }
         String[] noProxyArr = noProxyList.split(",");

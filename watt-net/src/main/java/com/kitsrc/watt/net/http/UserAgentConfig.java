@@ -1,6 +1,6 @@
 package com.kitsrc.watt.net.http;
 
-import com.kitsrc.watt.net.utils.StringUtils;
+import com.kitsrc.watt.utils.StringUtil;
 import java.io.IOException;
 import java.util.*;
 
@@ -35,7 +35,7 @@ public class UserAgentConfig {
     }
 
     public void append(String key, String value) {
-        if (StringUtils.isEmpty(key) || StringUtils.isEmpty(value)) {
+        if (StringUtil.isEmpty(key) || StringUtil.isEmpty(value)) {
             return;
         }
         if (excludeList.contains(key.toLowerCase())) {

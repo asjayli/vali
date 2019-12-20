@@ -3,7 +3,7 @@ package com.kitsrc.watt.net.http;
 import com.kitsrc.watt.net.http.clients.ApacheHttpClient;
 import com.kitsrc.watt.net.http.clients.CompatibleUrlConnClient;
 import com.kitsrc.watt.net.profile.IClientProfile;
-import com.kitsrc.watt.net.utils.StringUtils;
+import com.kitsrc.watt.utils.StringUtil;
 import java.lang.reflect.Constructor;
 
 public class HttpClientFactory {
@@ -22,12 +22,12 @@ public class HttpClientFactory {
             String customClientClassName = null;
             if (clientConfig.isCompatibleMode()) {
                 customClientClassName = COMPATIBLE_HTTP_CLIENT_CLASS_NAME;
-            } else if (clientConfig.getClientType() == HttpClientType.Custom && !StringUtils.isEmpty(clientConfig.getCustomClientClassName())) {
+            } else if (clientConfig.getClientType() == HttpClientType.Custom && !StringUtil.isEmpty(clientConfig.getCustomClientClassName())) {
                 customClientClassName = clientConfig.getCustomClientClassName();
             } else {
                 customClientClassName = System.getProperty(HTTP_CLIENT_IMPL_KEY);
             }
-            if (StringUtils.isEmpty(customClientClassName)) {
+            if (StringUtil.isEmpty(customClientClassName)) {
                 customClientClassName = clientConfig.getClientType().getImplClass().getName();
             }
 

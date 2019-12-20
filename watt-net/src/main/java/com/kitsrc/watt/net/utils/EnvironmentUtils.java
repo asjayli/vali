@@ -1,5 +1,7 @@
 package com.kitsrc.watt.net.utils;
 
+import com.kitsrc.watt.utils.StringUtil;
+
 public class EnvironmentUtils {
 
     private static volatile String httpProxy;
@@ -10,7 +12,7 @@ public class EnvironmentUtils {
         if (null == httpProxy) {
             String proxy0 = System.getenv("HTTP_PROXY");
             String proxy1 = System.getenv("http_proxy");
-            return (!StringUtils.isEmpty(proxy0) ? proxy0 : proxy1);
+            return (!StringUtil.isEmpty(proxy0) ? proxy0 : proxy1);
         } else {
             return httpProxy;
         }
