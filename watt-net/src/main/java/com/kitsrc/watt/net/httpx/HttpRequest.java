@@ -1,4 +1,4 @@
-package com.kitsrc.watt.net.http;
+package com.kitsrc.watt.net.httpx;
 
 import java.util.Map;
 import lombok.ToString;

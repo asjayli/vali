@@ -1,5 +1,5 @@
 
-package com.kitsrc.watt.net.http.exceptions;
+package com.kitsrc.watt.net.httpx.exceptions;
 
 public enum ErrorType {
     // 客户端异常

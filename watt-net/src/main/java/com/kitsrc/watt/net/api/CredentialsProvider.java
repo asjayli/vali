@@ -1,7 +1,7 @@
 package com.kitsrc.watt.net.api;
 
-import com.kitsrc.watt.net.http.exceptions.ClientException;
-import com.kitsrc.watt.net.http.exceptions.ServerException;
+import com.kitsrc.watt.net.httpx.exceptions.ClientException;
+import com.kitsrc.watt.net.httpx.exceptions.ServerException;
 
 /**
  * Description: </p>

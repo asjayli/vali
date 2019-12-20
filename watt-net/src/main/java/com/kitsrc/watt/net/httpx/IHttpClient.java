@@ -1,8 +1,8 @@
-package com.kitsrc.watt.net.http;
+package com.kitsrc.watt.net.httpx;
 
 
 import com.kitsrc.watt.net.api.CallBack;
-import com.kitsrc.watt.net.http.exceptions.ClientException;
+import com.kitsrc.watt.net.httpx.exceptions.ClientException;
 import java.io.Closeable;
 import java.io.IOException;
 import java.util.concurrent.Future;

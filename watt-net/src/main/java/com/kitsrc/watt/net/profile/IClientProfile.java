@@ -1,8 +1,8 @@
 package com.kitsrc.watt.net.profile;
 
 
-import com.kitsrc.watt.net.http.FormatType;
-import com.kitsrc.watt.net.http.HttpClientConfig;
+import com.kitsrc.watt.net.httpx.FormatType;
+import com.kitsrc.watt.net.httpx.HttpClientConfig;
 import org.slf4j.Logger;
 
 @SuppressWarnings("deprecation")

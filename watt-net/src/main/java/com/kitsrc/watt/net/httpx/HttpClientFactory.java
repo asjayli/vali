@@ -1,11 +1,11 @@
-package com.kitsrc.watt.net.http;
+package com.kitsrc.watt.net.httpx;
 
 
 
 
 
-import com.kitsrc.watt.net.http.clients.ApacheHttpClient;
-import com.kitsrc.watt.net.http.clients.CompatibleUrlConnClient;
+import com.kitsrc.watt.net.httpx.clients.ApacheHttpClient;
+import com.kitsrc.watt.net.httpx.clients.CompatibleUrlConnClient;
 import java.lang.reflect.Constructor;
 
 public class HttpClientFactory {

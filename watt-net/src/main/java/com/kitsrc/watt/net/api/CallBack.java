@@ -1,7 +1,7 @@
 package com.kitsrc.watt.net.api;
 
-import com.kitsrc.watt.net.http.HttpRequest;
-import com.kitsrc.watt.net.http.HttpResponse;
+import com.kitsrc.watt.net.httpx.HttpRequest;
+import com.kitsrc.watt.net.httpx.HttpResponse;
 
 /**
  * 用于异步调用时的回调逻辑

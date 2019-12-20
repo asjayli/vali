@@ -1,11 +1,11 @@
-package com.kitsrc.watt.net.http.clients;
+package com.kitsrc.watt.net.httpx.clients;
 
 
 
 
 import com.kitsrc.watt.net.api.CallBack;
-import com.kitsrc.watt.net.http.*;
-import com.kitsrc.watt.net.http.exceptions.ClientException;
+import com.kitsrc.watt.net.httpx.*;
+import com.kitsrc.watt.net.httpx.exceptions.ClientException;
 import com.kitsrc.watt.utils.EnvironmentUtil;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

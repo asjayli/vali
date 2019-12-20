@@ -17,7 +17,7 @@
  * under the License.
  */
 
-package com.kitsrc.watt.net.http.exceptions;
+package com.kitsrc.watt.net.httpx.exceptions;
 
 public class ErrorMessageConstant {
 

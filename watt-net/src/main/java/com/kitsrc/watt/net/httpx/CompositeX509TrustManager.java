@@ -1,4 +1,4 @@
-package com.kitsrc.watt.net.http;
+package com.kitsrc.watt.net.httpx;
 
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;

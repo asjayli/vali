@@ -1,4 +1,4 @@
-package com.kitsrc.watt.net.http.clients;
+package com.kitsrc.watt.net.httpx.clients;
 
 import java.util.Map;
 import java.util.Map.Entry;
