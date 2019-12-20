@@ -39,7 +39,7 @@ public class DefaultAcsClient implements IAcsClient {
     private int maxRetryNumber = 3;
     private boolean autoRetry = true;
     private IClientProfile clientProfile = null;
-    private AlibabaCloudCredentialsProvider credentialsProvider;
+    private CredentialsProvider credentialsProvider;
     private DefaultCredentialsProvider defaultCredentialsProvider;
 
     private IHttpClient httpClient;
@@ -68,11 +68,11 @@ public class DefaultAcsClient implements IAcsClient {
         this(profile, new StaticCredentialsProvider(profile));
     }
 
-    public DefaultAcsClient(IClientProfile profile, AlibabaCloudCredentials credentials) {
+    public DefaultAcsClient(IClientProfile profile, Credentials credentials) {
         this(profile, new StaticCredentialsProvider(credentials));
     }
 
-    public DefaultAcsClient(IClientProfile profile, AlibabaCloudCredentialsProvider credentialsProvider) {
+    public DefaultAcsClient(IClientProfile profile, CredentialsProvider credentialsProvider) {
         this.clientProfile = profile;
         this.credentialsProvider = credentialsProvider;
         this.clientProfile.setCredentialsProvider(this.credentialsProvider);
@@ -182,7 +182,7 @@ public class DefaultAcsClient implements IAcsClient {
         if (null == request.getSysRegionId()) {
             request.setSysRegionId(region);
         }
-        AlibabaCloudCredentials credentials;
+        Credentials credentials;
         if (null == credentialsProvider) {
             credentials = this.defaultCredentialsProvider.getCredentials();
         } else {
@@ -258,7 +258,7 @@ public class DefaultAcsClient implements IAcsClient {
     }
 
     private <T extends AcsResponse> HttpResponse doAction(AcsRequest<T> request, boolean autoRetry, int maxRetryNumber,
-            String regionId, AlibabaCloudCredentials credentials, Signer signer, FormatType format)
+                                                          String regionId, Credentials credentials, Signer signer, FormatType format)
             throws ClientException, ServerException {
 
         doActionWithProxy(request.getSysProtocol(), System.getenv("HTTPS_PROXY"), System.getenv("HTTP_PROXY"));

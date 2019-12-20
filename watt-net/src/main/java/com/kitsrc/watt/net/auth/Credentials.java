@@ -1,6 +1,6 @@
 package com.kitsrc.watt.net.auth;
 
-public interface AlibabaCloudCredentials {
+public interface Credentials {
 
      String getAccessKeyId();
 

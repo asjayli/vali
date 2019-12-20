@@ -6,15 +6,15 @@ import com.kitsrc.watt.net.exceptions.ClientException;
 @Deprecated
 public class CredentialsBackupCompatibilityAdaptor extends Credential {
 
-    private final AlibabaCloudCredentialsProvider provider;
+    private final CredentialsProvider provider;
 
-    public CredentialsBackupCompatibilityAdaptor(AlibabaCloudCredentialsProvider provider) {
+    public CredentialsBackupCompatibilityAdaptor(CredentialsProvider provider) {
         this.provider = provider;
     }
 
-    private AlibabaCloudCredentials getCredentials() {
+    private Credentials getCredentials() {
         try {
-            AlibabaCloudCredentials credentials = this.provider.getCredentials();
+            Credentials credentials = this.provider.getCredentials();
             return credentials;
         } catch (ClientException e) {
             throw new RuntimeException(e.toString());
@@ -38,7 +38,7 @@ public class CredentialsBackupCompatibilityAdaptor extends Credential {
 
     @Override
     public String getSecurityToken() {
-        AlibabaCloudCredentials credentials = getCredentials();
+        Credentials credentials = getCredentials();
         if (credentials instanceof BasicSessionCredentials) {
             return ((BasicSessionCredentials) credentials).getSessionToken();
         } else {

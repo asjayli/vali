@@ -6,9 +6,9 @@ import com.kitsrc.watt.net.utils.AuthUtils;
 import com.kitsrc.watt.utils.StringUtil;
 
 
-public class SystemPropertiesCredentialsProvider implements AlibabaCloudCredentialsProvider {
+public class SystemPropertiesCredentialsProvider implements CredentialsProvider {
     @Override
-    public AlibabaCloudCredentials getCredentials() throws ClientException, ServerException {
+    public Credentials getCredentials() throws ClientException, ServerException {
         if (!"default".equals(AuthUtils.getClientType())) {
             return null;
         }

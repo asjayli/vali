@@ -1,6 +1,6 @@
 package com.kitsrc.watt.net.auth;
 
-public class KeyPairCredentials implements AlibabaCloudCredentials {
+public class KeyPairCredentials implements Credentials {
 
     private String privateKeySecret;
     private String publicKeyId;

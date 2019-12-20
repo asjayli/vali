@@ -13,7 +13,7 @@ import com.kitsrc.watt.net.profile.IClientProfile;
  * This implementation of AlibabaCloudCredentialsProvider accesses Alibaba Cloud STS service to assume a Role and get
  * back a temporary session for authentication.
  */
-public class STSAssumeRoleSessionCredentialsProvider implements AlibabaCloudCredentialsProvider {
+public class STSAssumeRoleSessionCredentialsProvider implements CredentialsProvider {
 
     /**
      * Default duration for started sessions.
@@ -45,12 +45,12 @@ public class STSAssumeRoleSessionCredentialsProvider implements AlibabaCloudCred
     private BasicSessionCredentials credentials = null;
 
 
-    public STSAssumeRoleSessionCredentialsProvider(AlibabaCloudCredentials longLivedCredentials,
+    public STSAssumeRoleSessionCredentialsProvider(Credentials longLivedCredentials,
                                                    String roleArn, IClientProfile clientProfile) {
         this(new StaticCredentialsProvider(longLivedCredentials), roleArn, clientProfile);
     }
 
-    public STSAssumeRoleSessionCredentialsProvider(AlibabaCloudCredentialsProvider longLivedCredentialsProvider,
+    public STSAssumeRoleSessionCredentialsProvider(CredentialsProvider longLivedCredentialsProvider,
                                                    String roleArn, IClientProfile clientProfile) {
         if (roleArn == null) {
             throw new NullPointerException(
@@ -101,7 +101,7 @@ public class STSAssumeRoleSessionCredentialsProvider implements AlibabaCloudCred
     }
 
     @Override
-    public AlibabaCloudCredentials getCredentials() throws ClientException, ServerException {
+    public Credentials getCredentials() throws ClientException, ServerException {
         if (credentials == null || credentials.willSoonExpire()) {
             credentials = getNewSessionCredentials();
         }

@@ -1,6 +1,6 @@
 package com.kitsrc.watt.net.auth;
 
-public class BearerTokenCredentials implements AlibabaCloudCredentials {
+public class BearerTokenCredentials implements Credentials {
 
     private String bearerToken;
 

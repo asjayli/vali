@@ -2,7 +2,7 @@ package com.kitsrc.watt.net.auth;
 
 import com.kitsrc.watt.net.exceptions.ClientException;
 
-public class InstanceProfileCredentialsProvider implements AlibabaCloudCredentialsProvider {
+public class InstanceProfileCredentialsProvider implements CredentialsProvider {
 
     private static final int MAX_ECS_METADATA_FETCH_RETRY_TIMES = 3;
     private final String roleName;
@@ -26,7 +26,7 @@ public class InstanceProfileCredentialsProvider implements AlibabaCloudCredentia
     }
 
     @Override
-    public AlibabaCloudCredentials getCredentials() throws ClientException {
+    public Credentials getCredentials() throws ClientException {
         if (credentials == null || credentials.isExpired()) {
             ecsMetadataServiceFetchCount += 1;
             int maxRetryTimes = MAX_ECS_METADATA_FETCH_RETRY_TIMES;

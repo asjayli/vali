@@ -3,7 +3,7 @@ package com.kitsrc.watt.net.auth;
 import com.kitsrc.watt.net.exceptions.ClientException;
 import com.kitsrc.watt.net.exceptions.ServerException;
 
-public interface AlibabaCloudCredentialsProvider {
+public interface CredentialsProvider {
 
-     AlibabaCloudCredentials getCredentials() throws ClientException, ServerException;
+     Credentials getCredentials() throws ClientException, ServerException;
 }

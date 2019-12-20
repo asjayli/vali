@@ -3,9 +3,9 @@ package com.kitsrc.watt.net.auth;
 import com.kitsrc.watt.net.exceptions.ClientException;
 import com.kitsrc.watt.net.utils.AuthUtils;
 
-public class EnvironmentVariableCredentialsProvider implements AlibabaCloudCredentialsProvider {
+public class EnvironmentVariableCredentialsProvider implements CredentialsProvider {
     @Override
-    public AlibabaCloudCredentials getCredentials() throws ClientException {
+    public Credentials getCredentials() throws ClientException {
         if (!"default".equals(AuthUtils.getClientType())) {
             return null;
         }

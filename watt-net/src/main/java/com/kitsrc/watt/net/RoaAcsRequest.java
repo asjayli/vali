@@ -129,7 +129,7 @@ public abstract class RoaAcsRequest<T extends AcsResponse> extends AcsRequest<T>
     }
 
     @Override
-    public HttpRequest signRequest(Signer signer, AlibabaCloudCredentials credentials, FormatType format,
+    public HttpRequest signRequest(Signer signer, Credentials credentials, FormatType format,
                                    ProductDomain domain) throws InvalidKeyException, IllegalStateException,
             UnsupportedEncodingException, NoSuchAlgorithmException {
         Map<String, String> bodyParams = this.getSysBodyParameters();

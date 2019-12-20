@@ -3,7 +3,7 @@ package com.kitsrc.watt.net.auth;
 public class BearerTokenSigner extends Signer {
 
     @Override
-    public String signString(String stringToSign, AlibabaCloudCredentials credentials) {
+    public String signString(String stringToSign, Credentials credentials) {
         return null;
     }
 

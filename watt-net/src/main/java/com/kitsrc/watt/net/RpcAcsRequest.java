@@ -111,8 +111,8 @@ public abstract class RpcAcsRequest<T extends AcsResponse> extends AcsRequest<T>
     }
 
     @Override
-    public HttpRequest signRequest(Signer signer, AlibabaCloudCredentials credentials, FormatType format,
-            ProductDomain domain) throws InvalidKeyException, IllegalStateException, UnsupportedEncodingException {
+    public HttpRequest signRequest(Signer signer, Credentials credentials, FormatType format,
+                                   ProductDomain domain) throws InvalidKeyException, IllegalStateException, UnsupportedEncodingException {
 
         Map<String, String> imutableMap = new HashMap<String, String>(this.getSysQueryParameters());
         if (null != signer && null != credentials) {

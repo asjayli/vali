@@ -118,7 +118,7 @@ public class DefaultProfile implements IClientProfile {
     }
 
     @Override
-    public void setCredentialsProvider(AlibabaCloudCredentialsProvider credentialsProvider) {
+    public void setCredentialsProvider(CredentialsProvider credentialsProvider) {
         if (credential != null) {
             return;
         }

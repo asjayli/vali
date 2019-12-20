@@ -12,7 +12,7 @@ public abstract class Signer {
     private final static Signer SHA256_WITH_RSA_SIGNER = new SHA256withRSASigner();
     private final static Signer BEARER_TOKEN_SIGNER = new BearerTokenSigner();
 
-    public static Signer getSigner(AlibabaCloudCredentials credentials) {
+    public static Signer getSigner(Credentials credentials) {
         if (credentials instanceof KeyPairCredentials) {
             return SHA256_WITH_RSA_SIGNER;
         } else if (credentials instanceof BearerTokenCredentials) {
@@ -22,7 +22,7 @@ public abstract class Signer {
         }
     }
 
-    public abstract String signString(String stringToSign, AlibabaCloudCredentials credentials);
+    public abstract String signString(String stringToSign, Credentials credentials);
 
     public abstract String signString(String stringToSign, String accessKeySecret);
 

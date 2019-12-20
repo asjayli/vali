@@ -1,7 +1,7 @@
 package com.kitsrc.watt.net.auth;
 
 @SuppressWarnings("deprecation")
-public class LegacyCredentials implements AlibabaCloudCredentials {
+public class LegacyCredentials implements Credentials {
 
     private final Credential legacyCredential;
 

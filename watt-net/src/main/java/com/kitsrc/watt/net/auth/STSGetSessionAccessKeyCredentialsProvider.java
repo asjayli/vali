@@ -11,7 +11,7 @@ import com.kitsrc.watt.net.http.ProtocolType;
 import com.kitsrc.watt.net.profile.DefaultProfile;
 import com.kitsrc.watt.net.profile.IClientProfile;
 
-public class STSGetSessionAccessKeyCredentialsProvider implements AlibabaCloudCredentialsProvider {
+public class STSGetSessionAccessKeyCredentialsProvider implements CredentialsProvider {
 
     public static final int DEFAULT_DURATION_SECONDS = 3600;
     private KeyPairCredentials keyPairCredentials;
@@ -44,7 +44,7 @@ public class STSGetSessionAccessKeyCredentialsProvider implements AlibabaCloudCr
     }
 
     @Override
-    public AlibabaCloudCredentials getCredentials() throws ClientException, ServerException {
+    public Credentials getCredentials() throws ClientException, ServerException {
         if (sessionCredentials == null || sessionCredentials.willSoonExpire()) {
             sessionCredentials = getNewSessionCredentials();
         }

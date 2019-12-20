@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
-public class DefaultCredentialsProvider implements AlibabaCloudCredentialsProvider {
-    private List<AlibabaCloudCredentialsProvider> defaultProviders = new ArrayList<AlibabaCloudCredentialsProvider>();
-    private static final List<AlibabaCloudCredentialsProvider> USER_CONFIGURATION_PROVIDERS =
-            new Vector<AlibabaCloudCredentialsProvider>();
+public class DefaultCredentialsProvider implements CredentialsProvider {
+    private List<CredentialsProvider> defaultProviders = new ArrayList<CredentialsProvider>();
+    private static final List<CredentialsProvider> USER_CONFIGURATION_PROVIDERS =
+            new Vector<CredentialsProvider>();
 
     public DefaultCredentialsProvider() throws ClientException {
         defaultProviders.add(new SystemPropertiesCredentialsProvider());
@@ -25,17 +25,17 @@ public class DefaultCredentialsProvider implements AlibabaCloudCredentialsProvid
     }
 
     @Override
-    public AlibabaCloudCredentials getCredentials() throws ClientException {
-        AlibabaCloudCredentials credential;
+    public Credentials getCredentials() throws ClientException {
+        Credentials credential;
         if (USER_CONFIGURATION_PROVIDERS.size() > 0) {
-            for (AlibabaCloudCredentialsProvider provider : USER_CONFIGURATION_PROVIDERS) {
+            for (CredentialsProvider provider : USER_CONFIGURATION_PROVIDERS) {
                 credential = provider.getCredentials();
                 if (null != credential) {
                     return credential;
                 }
             }
         }
-        for (AlibabaCloudCredentialsProvider provider : defaultProviders) {
+        for (CredentialsProvider provider : defaultProviders) {
             credential = provider.getCredentials();
             if (null != credential) {
                 return credential;
@@ -44,15 +44,15 @@ public class DefaultCredentialsProvider implements AlibabaCloudCredentialsProvid
         throw new ClientException("not found credentials");
     }
 
-    public static boolean addCredentialsProvider(AlibabaCloudCredentialsProvider provider) {
+    public static boolean addCredentialsProvider(CredentialsProvider provider) {
         return DefaultCredentialsProvider.USER_CONFIGURATION_PROVIDERS.add(provider);
     }
 
-    public static boolean removeCredentialsProvider(AlibabaCloudCredentialsProvider provider) {
+    public static boolean removeCredentialsProvider(CredentialsProvider provider) {
         return DefaultCredentialsProvider.USER_CONFIGURATION_PROVIDERS.remove(provider);
     }
 
-    public static boolean containsCredentialsProvider(AlibabaCloudCredentialsProvider provider) {
+    public static boolean containsCredentialsProvider(CredentialsProvider provider) {
         return DefaultCredentialsProvider.USER_CONFIGURATION_PROVIDERS.contains(provider);
     }
 

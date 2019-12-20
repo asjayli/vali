@@ -29,7 +29,7 @@ public class HmacSHA1Signer extends Signer {
     }
 
     @Override
-    public String signString(String stringToSign, AlibabaCloudCredentials credentials) {
+    public String signString(String stringToSign, Credentials credentials) {
         return signString(stringToSign, credentials.getAccessKeySecret());
     }
 

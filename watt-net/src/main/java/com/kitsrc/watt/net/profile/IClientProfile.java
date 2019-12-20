@@ -1,7 +1,7 @@
 package com.kitsrc.watt.net.profile;
 
 
-import com.kitsrc.watt.net.auth.AlibabaCloudCredentialsProvider;
+import com.kitsrc.watt.net.auth.CredentialsProvider;
 import com.kitsrc.watt.net.auth.Credential;
 import com.kitsrc.watt.net.auth.ISigner;
 import com.kitsrc.watt.net.http.FormatType;
@@ -32,7 +32,7 @@ public interface IClientProfile {
      *
      * @param credentialsProvider
      */
-        void setCredentialsProvider(AlibabaCloudCredentialsProvider credentialsProvider);
+        void setCredentialsProvider(CredentialsProvider credentialsProvider);
 
     /**
      * use HttpClientConfig.getCertPath instead

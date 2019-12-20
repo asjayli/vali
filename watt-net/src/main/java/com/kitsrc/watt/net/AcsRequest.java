@@ -297,8 +297,8 @@ public abstract class AcsRequest<T extends AcsResponse> extends HttpRequest {
         this.productDomain = productDomain;
     }
 
-    public abstract HttpRequest signRequest(Signer signer, AlibabaCloudCredentials credentials, FormatType format,
-            ProductDomain domain)
+    public abstract HttpRequest signRequest(Signer signer, Credentials credentials, FormatType format,
+                                            ProductDomain domain)
             throws InvalidKeyException, IllegalStateException, UnsupportedEncodingException, NoSuchAlgorithmException;
 
     public abstract String composeUrl(String endpoint, Map<String, String> queries) throws UnsupportedEncodingException;

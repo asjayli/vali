@@ -1,6 +1,6 @@
 package com.kitsrc.watt.net.auth;
 
-public class BasicSessionCredentials implements AlibabaCloudCredentials {
+public class BasicSessionCredentials implements Credentials {
 
     protected final long roleSessionDurationSeconds;
     private final String accessKeyId;

@@ -2,11 +2,11 @@ package com.kitsrc.watt.net.auth;
 
 import com.kitsrc.watt.net.profile.IClientProfile;
 
-public class StaticCredentialsProvider implements AlibabaCloudCredentialsProvider {
+public class StaticCredentialsProvider implements CredentialsProvider {
 
-    private AlibabaCloudCredentials credentials = null;
+    private Credentials credentials = null;
 
-    public StaticCredentialsProvider(AlibabaCloudCredentials credentials) {
+    public StaticCredentialsProvider(Credentials credentials) {
         this.credentials = credentials;
     }
 
@@ -23,7 +23,7 @@ public class StaticCredentialsProvider implements AlibabaCloudCredentialsProvide
     }
 
     @Override
-    public AlibabaCloudCredentials getCredentials() {
+    public Credentials getCredentials() {
         return this.credentials;
     }
 }
