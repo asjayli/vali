@@ -15,10 +15,7 @@
  */
 package com.kitsrc.watt.utils;
 
-import java.net.InetAddress;
-import java.net.InetSocketAddress;
-import java.net.NetworkInterface;
-import java.net.SocketAddress;
+import java.net.*;
 import java.util.Enumeration;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -36,12 +33,10 @@ public class NetUtil {
     private static final String LOCALHOST = "127.0.0.1";
 
     private static final String ANY_HOST = "0.0.0.0";
-
-    private static volatile InetAddress LOCAL_ADDRESS = null;
-
     private static final Pattern IPV4_PATTERN = Pattern.compile(
             "^((25[0-5]|2[0-4]\\d|[01]?\\d\\d?)\\.){3}(25[0-5]|2[0-4]\\d|[01]?\\d\\d?)$");
     private static final Pattern IPV6_PATTERN = Pattern.compile("^([\\da-fA-F]{1,4}:){7}[\\da-fA-F]{1,4}$");
+    private static volatile InetAddress LOCAL_ADDRESS = null;
 
     public static boolean isIPV4(String addr) {
         return isMatch(addr, IPV4_PATTERN);
@@ -263,5 +258,23 @@ public class NetUtil {
         }
 
 
+    }
+
+    /**
+     * @param inetSocketAddress
+     * @return
+     */
+    public static String format(InetSocketAddress inetSocketAddress) {
+        InetAddress inetAddress = inetSocketAddress.getAddress();
+
+        if (inetAddress == null) {
+            return String.format("%s:%s", inetSocketAddress.getHostString(), inetSocketAddress.getPort());
+        }
+
+        if (inetAddress instanceof Inet6Address) {
+            return String.format("[%s]:%s", inetAddress.getHostAddress(), inetSocketAddress.getPort());
+        } else {
+            return String.format("%s:%s", inetAddress.getHostAddress(), inetSocketAddress.getPort());
+        }
     }
 }
