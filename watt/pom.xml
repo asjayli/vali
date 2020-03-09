@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns="http://maven.apache.org/POM/4.0.0"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>watt-parent</artifactId>
+        <groupId>com.kitsrc.watt</groupId>
+        <version>0.0.1</version>
+    </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.kitsrc.watt</groupId>
-    <artifactId>watt-parent</artifactId>
-    <version>0.0.1</version>
-    <modules>
-        <module>watt</module>
-    </modules>
-    <packaging>pom</packaging>
-
+    <artifactId>watt</artifactId>
+    <version>1.0.0</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -21,16 +20,8 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
 
-        <guava.version>28.2-jre</guava.version>
+        <watt.version>28.2-jre</watt.version>
     </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>${guava.version}</version>
-        </dependency>
-    </dependencies>
 
 
 </project>
