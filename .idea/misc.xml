@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ASMIdeaPluginConfiguration">
+    <asm skipDebug="false" skipFrames="false" skipCode="false" expandFrames="false" />
+    <groovy codeStyle="LEGACY" />
+  </component>
   <component name="CheckstyleConfigurable">
     <option name="suppFilterFilename" value="" />
     <option name="suppCommentFilter" value="false" />
@@ -36,11 +40,14 @@
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/java-feature-tracking/jfk8/pom.xml" />
+        <option value="$PROJECT_DIR$/java-feature-tracking/pom.xml" />
+        <option value="$PROJECT_DIR$/vali-concurrent/pom.xml" />
         <option value="$PROJECT_DIR$/watt-json/pom.xml" />
       </set>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="openj9_8.0_222" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="openj9_8.0_222" project-jdk-type="JavaSDK" />
   <component name="SuppressionsComponent">
     <option name="suppComments" value="[]" />
   </component>

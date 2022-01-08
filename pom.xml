@@ -4,25 +4,24 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.kitsrc.watt</groupId>
-	<artifactId>watt</artifactId>
-    <version>0.0.1</version>
+	<groupId>com.vali</groupId>
+	<artifactId>vali</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
 	<modules>
-		<module>watt-core</module>
-		<module>watt-job</module>
-		<module>watt-metrics</module>
-		<module>watt-net</module>
-		<module>watt-turing</module>
-		<module>watt-runtime</module>
-		<module>watt-concurrent</module>
-		<module>watt-security</module>
-		<module>watt-io</module>
-		<module>watt-all</module>
-		<module>watt-sigar</module>
-		<module>watt-guid</module>
-        <module>watt-spring</module>
-        <module>watt-dependencies</module>
-        <module>jdk-feature-tracking</module>
+        <module>vali-dependencies</module>
+        <module>vali-core</module>
+        <module>vali-job</module>
+        <module>vali-metrics</module>
+        <module>vali-net</module>
+        <module>vali-turing</module>
+        <module>vali-runtime</module>
+        <module>vali-security</module>
+        <module>vali-io</module>
+        <module>vali-sigar</module>
+        <module>vali-guid</module>
+        <module>vali-spring</module>
+        <module>java-feature-track</module>
+        <module>vali-all</module>
     </modules>
 	<packaging>pom</packaging>
 

@@ -7,25 +7,40 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="watt-net" />
-        <module name="watt-job" />
+        <module name="watt-concurrent" />
         <module name="watt-sigar" />
-        <module name="watt-security" />
-        <module name="watt-runtime" />
+        <module name="vali-net" />
+        <module name="watt-net" />
+        <module name="vali-all" />
         <module name="watt-core" />
-        <module name="watt-guid" />
         <module name="watt-all" />
         <module name="watt-metrics" />
-        <module name="watt-concurrent" />
-        <module name="watt-spring" />
+        <module name="java-feature-track" />
+        <module name="vali-sigar" />
+        <module name="jfk8" />
+        <module name="watt-security" />
+        <module name="vali-guid" />
+        <module name="watt-runtime" />
+        <module name="vali-spring" />
+        <module name="vali-job" />
+        <module name="watt-job" />
         <module name="watt-turing" />
-        <module name="jdk-feature-tracking" />
-        <module name="watt-dependencies" />
         <module name="watt-io" />
+        <module name="vali-security" />
+        <module name="vali-io" />
+        <module name="vali-runtime" />
+        <module name="watt-spring" />
+        <module name="vali-core" />
+        <module name="watt-dependencies" />
+        <module name="vali-metrics" />
+        <module name="watt-guid" />
+        <module name="vali-turing" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="java-feature-track" target="1.8" />
       <module name="jdk-feature-tracking" target="1.8" />
+      <module name="jfk8" target="1.8" />
       <module name="jutils-all" target="1.8" />
       <module name="jutils-concurrent" target="1.8" />
       <module name="jutils-core" target="1.8" />
@@ -40,6 +55,21 @@
       <module name="jutils-sigar" target="1.8" />
       <module name="jutils-spring" target="1.8" />
       <module name="jutils-turing" target="1.8" />
+      <module name="vali" target="1.8" />
+      <module name="vali-all" target="1.8" />
+      <module name="vali-concurrent" target="1.8" />
+      <module name="vali-core" target="1.8" />
+      <module name="vali-dependencies" target="1.8" />
+      <module name="vali-guid" target="1.8" />
+      <module name="vali-io" target="1.8" />
+      <module name="vali-job" target="1.8" />
+      <module name="vali-metrics" target="1.8" />
+      <module name="vali-net" target="1.8" />
+      <module name="vali-runtime" target="1.8" />
+      <module name="vali-security" target="1.8" />
+      <module name="vali-sigar" target="1.8" />
+      <module name="vali-spring" target="1.8" />
+      <module name="vali-turing" target="1.8" />
       <module name="watt" target="1.8" />
       <module name="watt-all" target="1.8" />
       <module name="watt-concurrent" target="1.8" />
